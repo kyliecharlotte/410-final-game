@@ -5,7 +5,7 @@ public class CharacterSelector : MonoBehaviour
 {
 
         public GameObject[] playerChoices;
-        private int selectedCharacter;
+        public int selectedCharacter;
         public string mainScene = "CharacterCustomization"; //TO BE CHANGED
         private string selectedCharacterName = "SelectedCharacter";
 
@@ -23,6 +23,7 @@ public class CharacterSelector : MonoBehaviour
         }
     }
     public void NextCharacter() {
+        Debug.Log("clicked");
         playerChoices[selectedCharacter].SetActive(false);
         selectedCharacter++;
         if (selectedCharacter >= playerChoices.Length) {

@@ -13,7 +13,7 @@ public class CharacterSelector : MonoBehaviour
     void Start()
     {
         HideAllCharacters();
-        selectedCharacter = PlayerPrefs.GetInt(selectedCharacterName, 0);
+        selectedCharacter = 0;
         playerChoices[selectedCharacter].SetActive(true);
 
     }
@@ -42,7 +42,9 @@ public class CharacterSelector : MonoBehaviour
     }
 
     public void StartGame() {
+        // set preference to store it across files
         PlayerPrefs.SetInt(selectedCharacterName, selectedCharacter);
+        HideAllCharacters();
         SceneManager.LoadScene(mainScene);
     }
 }

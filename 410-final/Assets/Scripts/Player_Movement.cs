@@ -4,25 +4,49 @@ public class Player_Movement : MonoBehaviour
 {
     public CharacterController controller;
     public GameObject mainScript;
+    public Transform playerBody;
+    
+    public Vector3 inputDirection;
     public GameObject player;
-    private Vector3 movement;
     private float playerSpeed = 5.0f;
-    private float gravity = -9.81f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Main_PlayerSelect script = mainScript.GetComponent<Main_PlayerSelect>();
         player = script.returnPlayer();
         controller = player.GetComponent<CharacterController>();
-        
+        playerBody = player.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //controller.transform.LookAt(movement);
 
-        controller.Move(movement * Time.deltaTime * playerSpeed);
-    }
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        inputDirection = new Vector3(x,0,z);
+        Vector3 worldInputDirection = playerBody.TransformDirection(inputDirection);
+        
+        controller.Move(worldInputDirection * Time.deltaTime * playerSpeed);
+
+       /* if (Input.GetAxisRaw("Horizontal") > 0) {
+            RotatePlayer(1);
+        } else if (Input.GetAxisRaw("Horizontal") < 0) {
+            RotatePlayer(-1);
+        }*/
+
+        if (inputDirection.magnitude > 0.01f) {
+            inputDirection.Normalize();
+            if (z >= 0) {
+                if (x > 0) {
+                //playerBody.rotation = Quaternion.Lerp(playerBody.rotation, Quaternion.LookRotation(inputDirection), 10f * Time.deltaTime);
+                    playerBody.Rotate(Vector3.up * 200f * Time.deltaTime);
+                } else if (x < 0) {
+                    playerBody.Rotate(-1 * Vector3.up * 200f * Time.deltaTime);
+                }
+            }
+            //playerBody.rotation = Quaternion.Lerp(playerBody.rotation, Quaternion.LookRotation(inputDirection), 10f * Time.deltaTime);
+        }
+    }  
 }

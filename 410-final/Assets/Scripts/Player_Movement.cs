@@ -22,8 +22,8 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
         inputDirection = new Vector3(x,0,z);
         Vector3 worldInputDirection = playerBody.TransformDirection(inputDirection);

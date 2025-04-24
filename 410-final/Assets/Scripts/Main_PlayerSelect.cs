@@ -8,7 +8,7 @@ public class Main_PlayerSelect : MonoBehaviour
     private string selectedCharacterName = "SelectedCharacter";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         selectedCharacter = PlayerPrefs.GetInt(selectedCharacterName, 0);
         //make sure tags of children match order in player dropdown
@@ -19,6 +19,7 @@ public class Main_PlayerSelect : MonoBehaviour
     }
     
     public GameObject returnPlayer () {
+        return player;
         return player.transform.GetChild(selectedCharacter).gameObject;
     }
     // Update is called once per frame

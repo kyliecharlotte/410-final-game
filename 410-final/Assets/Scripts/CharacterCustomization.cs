@@ -2,6 +2,8 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+
 
 public class Character_Customization : MonoBehaviour
 {
@@ -33,6 +35,21 @@ public class Character_Customization : MonoBehaviour
         // in case they look away
 
         player.transform.LookAt(camera_ref);
+
+    }
+
+    public void HideAllCharacters() {
+        foreach (GameObject g in characters) {
+            g.SetActive(false);
+        }
+    }
+
+
+    public void StartGame() {
+        // set preference to store it across files
+        PlayerPrefs.SetInt(selectedCharacterName, selectedCharacter);
+        HideAllCharacters();
+        SceneManager.LoadScene("MainScene");
     }
 
     // Update is called once per frame
@@ -40,4 +57,6 @@ public class Character_Customization : MonoBehaviour
     {
         
     }
+
+    
 }

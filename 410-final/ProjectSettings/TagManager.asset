@@ -8,6 +8,7 @@ TagManager:
   - 0
   - 1
   - 2
+  - Mace_Weapon
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - Water
   - UI
   - Open_Level_Door
-  - 
-  - 
-  - 
+  - Ground
+  - Player
+  - Enemy
   - 
   - 
   - 

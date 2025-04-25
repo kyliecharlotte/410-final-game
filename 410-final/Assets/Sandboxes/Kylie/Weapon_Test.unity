@@ -190,6 +190,10 @@ PrefabInstance:
       value: Mace
       objectReference: {fileID: 0}
     - target: {fileID: 7449782648777001352, guid: 5e6a617ecf9074984acafddaccbd711f, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449782648777001352, guid: 5e6a617ecf9074984acafddaccbd711f, type: 3}
       propertyPath: m_TagString
       value: Mace_Weapon
       objectReference: {fileID: 0}
@@ -850,6 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4775f852a75dc45798c95eea7b910717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasWeapon: 0
   player: {fileID: 0}
 --- !u!1 &1453733785
 GameObject:
@@ -1283,6 +1288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   speed: 6
+  canMove: 0
   donut: {fileID: 2066366335}
   player: {fileID: 1618884317}
   groundLayer:

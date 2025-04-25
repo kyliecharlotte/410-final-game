@@ -6,6 +6,8 @@ public class Player_Stats : MonoBehaviour
 {
     private int health;
 
+    public bool HasWeapon;
+
     //public Animator animator;
     private float timeBetweenAttacks;
 

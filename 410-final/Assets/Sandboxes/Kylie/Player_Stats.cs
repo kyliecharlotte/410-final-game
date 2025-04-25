@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +10,13 @@ public class Player_Stats : MonoBehaviour
 {
     private int health;
 
+    private bool enter = false;
+
+    public GameObject player_dad;
+
     public bool HasWeapon;
+
+    public GameObject curr_weapon;
 
     //public Animator animator;
     private float timeBetweenAttacks;
@@ -26,7 +36,30 @@ public class Player_Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            if (HasWeapon == true) {
+                DropWeapon(curr_weapon);
+            }
+        }
+    }
+
+    public void DropWeapon(GameObject curr) {
+        curr.transform.parent = null;
+        curr.GetComponent<Animator>().applyRootMotion = true;
+
+        if (curr.tag == "Mace_Weapon") {
+                if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
+                    StartCoroutine(drop_item_timer(curr));
+                }
+        }
+    
+    }
+
+    IEnumerator drop_item_timer(GameObject curr) {
+        enter = true;
+        yield return new WaitForSeconds(2.0f);
+        curr.GetComponent<Mace_PickUp>().collide = false;
+        enter = false;
     }
     public void TakeDamage (int dmg) {
         
@@ -38,6 +71,7 @@ public class Player_Stats : MonoBehaviour
     }
 
     public void MaceAttack (GameObject mace, GameObject enemy) {
+        
         player.GetComponent<Fighting_Script>().canMove = false;
         enemy.GetComponent<EnemyScript>().canMove = false;
         mace.GetComponent<Animator>().SetTrigger("mace_swing");

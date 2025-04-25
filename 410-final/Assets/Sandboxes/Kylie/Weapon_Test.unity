@@ -151,7 +151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5499554889900253811, guid: 5e6a617ecf9074984acafddaccbd711f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: -5499554889900253811, guid: 5e6a617ecf9074984acafddaccbd711f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -236,6 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb01eab546d7490fbddd4f7f1ef7ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script: 
+  collide: 0
   player: {fileID: 0}
   mace: {fileID: 249931251}
 --- !u!136 &249931256
@@ -854,8 +856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4775f852a75dc45798c95eea7b910717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_dad: {fileID: 0}
   HasWeapon: 0
-  player: {fileID: 0}
+  curr_weapon: {fileID: 0}
+  player: {fileID: 1208614317}
 --- !u!1 &1453733785
 GameObject:
   m_ObjectHideFlags: 0

@@ -602,8 +602,8 @@ Transform:
   m_GameObject: {fileID: 351370400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 299, y: 245, z: 0}
-  m_LocalScale: {x: 714.3939, y: 476.26257, z: 1.0976}
+  m_LocalPosition: {x: 382, y: 255, z: 0}
+  m_LocalScale: {x: 919.48035, y: 612.9869, z: 1.4126962}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -848,8 +848,8 @@ Transform:
   m_GameObject: {fileID: 877872324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 545.7646, y: 235.7, z: -2}
-  m_LocalScale: {x: 4.2004814, y: 226.92958, z: 1}
+  m_LocalPosition: {x: 642.8605, y: 226.3377, z: -2.2111}
+  m_LocalScale: {x: 6.239212, y: 337.07132, z: 1.4853565}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1505,8 +1505,8 @@ Transform:
   m_GameObject: {fileID: 1399058342}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 348.6, y: 348.5765, z: -2}
-  m_LocalScale: {x: 399.1368, y: 4.6788616, z: 1}
+  m_LocalPosition: {x: 350, y: 394, z: -2.2111}
+  m_LocalScale: {x: 592.8604, y: 6.949777, z: 1.4853565}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1831,8 +1831,8 @@ Transform:
   m_GameObject: {fileID: 1734428070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 347.9, y: 123.9781, z: -2}
-  m_LocalScale: {x: 399.1368, y: 4.7342505, z: 1}
+  m_LocalPosition: {x: 348.9602, y: 60.390396, z: -2.2111}
+  m_LocalScale: {x: 592.8604, y: 7.0320497, z: 1.4853565}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2072,8 +2072,8 @@ Transform:
   m_GameObject: {fileID: 1837214668}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 347.7341, y: 236.2447, z: -1.13}
-  m_LocalScale: {x: 399.13678, y: 229.21205, z: 1}
+  m_LocalPosition: {x: 348.7137, y: 227.14679, z: -0.9189}
+  m_LocalScale: {x: 592.86035, y: 340.46158, z: 1.4853565}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2364,7 +2364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26, y: 258}
+  m_AnchoredPosition: {x: 0.000020981, y: 136}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2001563365
@@ -2389,15 +2389,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Choose your candy cadet!!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291759014
+  m_fontColor: {r: 0.65178686, g: 0.043137256, b: 0.8113208, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2414,13 +2414,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2755,8 +2755,8 @@ Transform:
   m_GameObject: {fileID: 2083178389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150.5689, y: 236.04, z: -2}
-  m_LocalScale: {x: 4.329947, y: 226.92958, z: 1}
+  m_LocalPosition: {x: 55.85241, y: 226.84268, z: -2.2111}
+  m_LocalScale: {x: 6.4315143, y: 337.07132, z: 1.4853565}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

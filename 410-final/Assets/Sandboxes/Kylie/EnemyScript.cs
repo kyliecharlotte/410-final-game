@@ -13,6 +13,8 @@ public class EnemyScript : MonoBehaviour
 
     public NavMeshAgent donut;
     public Transform player;
+
+    public GameObject enemy_dad;
     public LayerMask groundLayer, playerLayer;
     public Vector3 walkPoint;
     bool walkPointExist;
@@ -57,15 +59,20 @@ public class EnemyScript : MonoBehaviour
         // stand still
         donut.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        enemy_dad.transform.LookAt(player);
+        donut.GetComponent<Animator>().SetTrigger("Broccoli_attack");
+        donut.GetComponent<Animator>().Play("broccoli_attack");
+
         if (!Attacked) {
             Attacked = true;
+            donut.GetComponent<EnemyScript>().canMove = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
     private void ResetAttack () {
         Attacked = false;
+        player.GetComponent<Fighting_Script>().canMove = true;
         return;
     }
 

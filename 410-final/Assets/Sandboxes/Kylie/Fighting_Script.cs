@@ -25,24 +25,24 @@ public CharacterController controller;
     void Update()
     {
         if (canMove == true) {
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+            float x = Input.GetAxisRaw("Horizontal");
+            float z = Input.GetAxisRaw("Vertical");
 
-        inputDirection = new Vector3(x,0,z);
-        Vector3 worldInputDirection = playerBody.TransformDirection(inputDirection);
-        
-        controller.Move(worldInputDirection * Time.deltaTime * playerSpeed);
+            inputDirection = new Vector3(x,0,z);
+            Vector3 worldInputDirection = playerBody.TransformDirection(inputDirection);
+            
+            controller.Move(worldInputDirection * Time.deltaTime * playerSpeed);
 
-        if (inputDirection.magnitude > 0.01f) {
-            inputDirection.Normalize();
-            if (z >= 0) {
-                if (x > 0) {
-                    playerBody.Rotate(Vector3.up * 200f * Time.deltaTime);
-                } else if (x < 0) {
-                    playerBody.Rotate(-1 * Vector3.up * 200f * Time.deltaTime);
+            if (inputDirection.magnitude > 0.01f) {
+                inputDirection.Normalize();
+                if (z >= 0) {
+                    if (x > 0) {
+                        playerBody.Rotate(Vector3.up * 200f * Time.deltaTime);
+                    } else if (x < 0) {
+                        playerBody.Rotate(-1 * Vector3.up * 200f * Time.deltaTime);
+                    }
                 }
             }
-        }
         }
     }  
 }

@@ -57,7 +57,7 @@ public class Player_Stats : MonoBehaviour
 
     IEnumerator drop_item_timer(GameObject curr) {
         enter = true;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2.5f);
         curr.GetComponent<Mace_PickUp>().collide = false;
         enter = false;
     }

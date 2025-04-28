@@ -8,7 +8,7 @@ public class Player_Movement : MonoBehaviour
     
     public Vector3 inputDirection;
     public GameObject player;
-    private float playerSpeed = 7.0f;
+    private float playerSpeed = 6.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

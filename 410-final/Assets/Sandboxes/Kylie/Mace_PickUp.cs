@@ -26,6 +26,8 @@ public class Mace_PickUp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
+        Debug.Log(collide);
         // 8 = Player layer
         if (collide == false) {
         if (other.gameObject.layer == 8) {
@@ -34,6 +36,7 @@ public class Mace_PickUp : MonoBehaviour
             player.GetComponent<Player_Stats>().curr_weapon = mace;
             mace.gameObject.transform.position = mace.gameObject.transform.position - new Vector3(0, mace.transform.position.y, 0);
             mace.gameObject.transform.parent = other.gameObject.transform;
+            mace.gameObject.GetComponent<Light>().enabled= false;
             mace.gameObject.transform.rotation = Quaternion.Euler(80,0,0);
             mace.GetComponent<CapsuleCollider>().radius = 1.5f;
             mace.GetComponent<Animator>().applyRootMotion = false;

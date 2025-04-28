@@ -46,21 +46,23 @@ public class Player_Stats : MonoBehaviour
     public void DropWeapon(GameObject curr) {
         curr.transform.parent = null;
         curr.GetComponent<Animator>().applyRootMotion = true;
+        curr.GetComponent<Light>().enabled = true;
 
         if (curr.tag == "Mace_Weapon") {
-                if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
-                    StartCoroutine(drop_item_timer(curr));
-                }
+                //if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
+                StartCoroutine(drop_item_timer(curr));
+                //}
         }
     
     }
 
     IEnumerator drop_item_timer(GameObject curr) {
         enter = true;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.5f);
         curr.GetComponent<Mace_PickUp>().collide = false;
         enter = false;
     }
+
     public void TakeDamage (int dmg) {
         
         health -= dmg;
@@ -75,7 +77,7 @@ public class Player_Stats : MonoBehaviour
         player.GetComponent<Fighting_Script>().canMove = false;
         enemy.GetComponent<EnemyScript>().canMove = false;
         mace.GetComponent<Animator>().SetTrigger("mace_swing");
-        mace.GetComponent<Animator>().Play("mace");
+        //mace.GetComponent<Animator>().Play("mace");
 
         if (!Attacked) {
             Attacked = true;
@@ -93,6 +95,6 @@ public class Player_Stats : MonoBehaviour
     }
 
     void EndGame() {
-        SceneManager.LoadScene("Weapon_Test");
+        SceneManager.LoadScene("MainScene");
     }
 }

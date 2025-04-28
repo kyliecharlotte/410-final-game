@@ -8,7 +8,7 @@ public class EnemyScript : MonoBehaviour
 {
 
     public float health = 5;
-    public float speed = 5f;
+    public float speed = 5.2f;
 
     public bool canMove;
 
@@ -26,10 +26,13 @@ public class EnemyScript : MonoBehaviour
     public bool playerInSightRange, playerInAttackRange;
     private bool Attacked;
     public float timeBetweenAttacks;
+    public GameObject mainScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Awake()
+    private void Start()
     {
         player = GameObject.Find("Player").transform;
+        Main_PlayerSelect script = mainScript.GetComponent<Main_PlayerSelect>();
+        player_obj = script.returnPlayer();
         donut = GetComponent<NavMeshAgent>(); 
         canMove = true;
     }
@@ -55,25 +58,19 @@ public class EnemyScript : MonoBehaviour
 
     private void ChasePlayer() {
         donut.SetDestination(player_obj.transform.position);
-        Debug.Log(player.position);
-        Debug.Log(player_obj.transform.position);
     }
 
     private void AttackPlayer() {
         // stand still
         donut.SetDestination(transform.position);
-        //donut.GetComponent<Animator>().SetTrigger("Broccoli_attack");
-       // player_obj.GetComponent<Fighting_Script>().canMove = false;
-        //this.GetComponent<CapsuleCollider>().enabled = false;
-        //player_obj.GetComponent<CapsuleCollider>().enabled = false;
         bool looking = Physics.CheckSphere(transform.position, 3f, playerLayer);
 
-        Debug.Log(looking);
         if (!Attacked) {
             Attacked = true;
             this.GetComponent<Animator>().SetTrigger("attack");
             this.GetComponent<Animator>().Play("broccoli_attack");
             //this.GetComponent<EnemyScript>().canMove = true;
+            Debug.Log(player_obj);
             player_obj.GetComponent<Player_Stats>().TakeDamage(2);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -119,11 +116,6 @@ public class EnemyScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -135,11 +127,9 @@ public class EnemyScript : MonoBehaviour
             Patroling();
         }
         if (playerInSightRange && !playerInAttackRange) {
-            Debug.Log("y");
             ChasePlayer();
         }
         if (playerInAttackRange && playerInSightRange) {
-            Debug.Log("x");
             AttackPlayer();
         }
         }

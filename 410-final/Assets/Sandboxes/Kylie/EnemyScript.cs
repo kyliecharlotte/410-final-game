@@ -71,7 +71,7 @@ public class EnemyScript : MonoBehaviour
             this.GetComponent<Animator>().Play("broccoli_attack");
             //this.GetComponent<EnemyScript>().canMove = true;
             Debug.Log(player_obj);
-            player_obj.GetComponent<Player_Stats>().TakeDamage(2);
+            player_obj.GetComponent<Player_Stats>().TakeDamage(5);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }

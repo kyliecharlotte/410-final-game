@@ -79,6 +79,7 @@ public class Player_Stats : MonoBehaviour
 
         if (!Attacked) {
             Attacked = true;
+            enemy.GetComponent<EnemyScript>().TakeDamage(1);
             enemy.GetComponent<EnemyScript>().canMove = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

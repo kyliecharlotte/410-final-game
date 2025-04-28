@@ -1,5 +1,6 @@
 using System.Xml.Serialization;
 using GLTFast;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,7 @@ public class EnemyScript : MonoBehaviour
 
     public NavMeshAgent donut;
     public Transform player;
+    public GameObject player_obj;
 
     public GameObject enemy_dad;
     public LayerMask groundLayer, playerLayer;
@@ -52,27 +54,37 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void ChasePlayer() {
-        donut.SetDestination(player.position);
+        donut.SetDestination(player_obj.transform.position);
+        Debug.Log(player.position);
+        Debug.Log(player_obj.transform.position);
     }
 
     private void AttackPlayer() {
         // stand still
         donut.SetDestination(transform.position);
+        //donut.GetComponent<Animator>().SetTrigger("Broccoli_attack");
+       // player_obj.GetComponent<Fighting_Script>().canMove = false;
+        //this.GetComponent<CapsuleCollider>().enabled = false;
+        //player_obj.GetComponent<CapsuleCollider>().enabled = false;
+        bool looking = Physics.CheckSphere(transform.position, 3f, playerLayer);
 
-        enemy_dad.transform.LookAt(player);
-        donut.GetComponent<Animator>().SetTrigger("Broccoli_attack");
-        donut.GetComponent<Animator>().Play("broccoli_attack");
-
+        Debug.Log(looking);
         if (!Attacked) {
             Attacked = true;
-            donut.GetComponent<EnemyScript>().canMove = true;
+            this.GetComponent<Animator>().SetTrigger("attack");
+            this.GetComponent<Animator>().Play("broccoli_attack");
+            //this.GetComponent<EnemyScript>().canMove = true;
+            player_obj.GetComponent<Player_Stats>().TakeDamage(2);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
     private void ResetAttack () {
         Attacked = false;
-        player.GetComponent<Fighting_Script>().canMove = true;
+        this.GetComponent<Animator>().ResetTrigger("attack");
+        //player_obj.GetComponent<CapsuleCollider>().enabled = true;
+        //player_obj.GetComponent<Fighting_Script>().canMove = true;
+        //this.GetComponent<CapsuleCollider>().enabled = true;
         return;
     }
 
@@ -123,9 +135,11 @@ public class EnemyScript : MonoBehaviour
             Patroling();
         }
         if (playerInSightRange && !playerInAttackRange) {
+            Debug.Log("y");
             ChasePlayer();
         }
         if (playerInAttackRange && playerInSightRange) {
+            Debug.Log("x");
             AttackPlayer();
         }
         }

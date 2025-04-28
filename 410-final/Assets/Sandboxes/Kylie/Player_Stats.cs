@@ -18,6 +18,8 @@ public class Player_Stats : MonoBehaviour
 
     public GameObject curr_weapon;
 
+    public AudioSource audioSource;
+
     //public Animator animator;
     private float timeBetweenAttacks;
 
@@ -68,7 +70,7 @@ public class Player_Stats : MonoBehaviour
         health -= dmg;
 
         if (health <= 0) {
-            Invoke(nameof(EndGame), 0.5f);
+            Invoke(nameof(EndGame), 1.0f);
         }
     }
 
@@ -76,11 +78,14 @@ public class Player_Stats : MonoBehaviour
         
         player.GetComponent<Fighting_Script>().canMove = false;
         enemy.GetComponent<EnemyScript>().canMove = false;
+        audioSource = mace.GetComponent<AudioSource>();
         mace.GetComponent<Animator>().SetTrigger("mace_swing");
+
         //mace.GetComponent<Animator>().Play("mace");
 
         if (!Attacked) {
             Attacked = true;
+            audioSource.Play();
             enemy.GetComponent<EnemyScript>().TakeDamage(1);
             enemy.GetComponent<EnemyScript>().canMove = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

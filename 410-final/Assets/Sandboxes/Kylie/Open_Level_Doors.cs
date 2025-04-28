@@ -11,11 +11,13 @@ public class Open_Level_Doors : MonoBehaviour
     // Check if enemy still alive
 
     public GameObject enemy;
+    public GameObject wall;
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 8) {
             if (!enemy) {
                 this.gameObject.SetActive(false);
+                wall.SetActive(false);
                 SceneManager.LoadScene("CharacterSelection");
             }
         }
@@ -26,6 +28,7 @@ public class Open_Level_Doors : MonoBehaviour
         if (other.gameObject.layer == 8) {
             if (!enemy) {
                 this.gameObject.SetActive(false);
+                wall.SetActive(false);
                 SceneManager.LoadScene("CharacterSelection");
             }
         }

@@ -88,9 +88,8 @@ public class Player_Stats : MonoBehaviour
         if (!Attacked) {
             Attacked = true;
             audioSource.Play();
-            if (Physics.CheckSphere(enemy.transform.position, 0.65f, enemyLayer)) {
+            if (Physics.CheckSphere(enemy.transform.position, 0.75f, enemyLayer)) {
                 enemy.GetComponent<EnemyScript>().TakeDamage(1);
-                Debug.Log("hit");
                 Debug.Log(enemy.GetComponent<EnemyScript>().ShowHealth());
             }
             //enemy.GetComponent<EnemyScript>().TakeDamage(1);

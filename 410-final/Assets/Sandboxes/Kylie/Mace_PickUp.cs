@@ -36,10 +36,9 @@ public class Mace_PickUp : MonoBehaviour
 
         foreach (Collider enemy in enemiesInRange) {
             Vector3 dir = (player.transform.position - enemy.transform.position).normalized;
-            float angle = Vector3.Angle(player.transform.forward, dir);
+            float angle = Vector3.Angle(player.transform.forward.normalized, dir);
             //float angle = Vector3.Angle(new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical")),dir);
-            if (enemyInAttackRange && enemyInSightRange && Input.GetKeyDown(KeyCode.E) && (180 - angle) < 45f) {
-                    Debug.Log(180 - angle);
+            if (enemyInAttackRange && enemyInSightRange && Input.GetKeyDown(KeyCode.E) && (180 - angle) < 55f) {
                     player.GetComponent<Player_Stats>().MaceAttack(mace, enemy.gameObject);
             }
         }

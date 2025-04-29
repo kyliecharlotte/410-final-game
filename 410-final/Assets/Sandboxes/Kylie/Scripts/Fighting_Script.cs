@@ -3,7 +3,7 @@ using UnityEngine;
 public class Fighting_Script : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-public CharacterController controller;
+    public CharacterController controller;
     public GameObject mainScript;
 
     public bool canMove;
@@ -11,7 +11,7 @@ public CharacterController controller;
     
     public Vector3 inputDirection;
     public GameObject player;
-    private float playerSpeed = 7.0f;
+    private float playerSpeed = 10.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,9 +37,9 @@ public CharacterController controller;
                 inputDirection.Normalize();
                 if (z >= 0) {
                     if (x > 0) {
-                        playerBody.Rotate(Vector3.up * 200f * Time.deltaTime);
+                        playerBody.Rotate(Vector3.up * 180f * Time.deltaTime);
                     } else if (x < 0) {
-                        playerBody.Rotate(-1 * Vector3.up * 200f * Time.deltaTime);
+                        playerBody.Rotate(-1 * Vector3.up * 180f * Time.deltaTime);
                     }
                 }
             }

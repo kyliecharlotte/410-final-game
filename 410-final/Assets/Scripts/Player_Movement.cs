@@ -41,9 +41,9 @@ public class Player_Movement : MonoBehaviour
             if (z >= 0) {
                 if (x > 0) {
                 //playerBody.rotation = Quaternion.Lerp(playerBody.rotation, Quaternion.LookRotation(inputDirection), 10f * Time.deltaTime);
-                    playerBody.Rotate(Vector3.up * 200f * Time.deltaTime);
+                    playerBody.Rotate(Vector3.up * 80f * Time.deltaTime);
                 } else if (x < 0) {
-                    playerBody.Rotate(-1 * Vector3.up * 200f * Time.deltaTime);
+                    playerBody.Rotate(-1 * Vector3.up * 80f * Time.deltaTime);
                 }
             }
             //playerBody.rotation = Quaternion.Lerp(playerBody.rotation, Quaternion.LookRotation(inputDirection), 10f * Time.deltaTime);

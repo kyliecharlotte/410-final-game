@@ -21,6 +21,7 @@ public class EnemyScript : MonoBehaviour
     public Vector3 walkPoint;
     bool walkPointExist;
     public float walkPointRange;
+    private NavMeshPath path;
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -35,11 +36,16 @@ public class EnemyScript : MonoBehaviour
         player_obj = script.returnPlayer();
         donut = GetComponent<NavMeshAgent>(); 
         canMove = true;
+        path = new NavMeshPath();
+        donut.SetPath(path);
     }
 
     private void Patroling() {
 
-        if (!walkPointExist) 
+        //donut.isStopped = false;
+        //donut.speed = 4f;
+
+        /*if (!walkPointExist) 
         { 
             SearchWalkPoint();
         }
@@ -52,7 +58,8 @@ public class EnemyScript : MonoBehaviour
 
         if (distToWalkPoint.magnitude < 1f) {
             walkPointExist = false;
-        }
+        }*/
+        //SearchWalkPoint();
 
     }
 
@@ -70,8 +77,10 @@ public class EnemyScript : MonoBehaviour
             this.GetComponent<Animator>().SetTrigger("attack");
             this.GetComponent<Animator>().Play("broccoli_attack");
             //this.GetComponent<EnemyScript>().canMove = true;
-            Debug.Log(player_obj);
-            player_obj.GetComponent<Player_Stats>().TakeDamage(5);
+            if (Physics.CheckSphere(player_obj.transform.position, 0.75f, playerLayer)) {
+                player_obj.GetComponent<Player_Stats>().TakeDamage(3);
+            }
+            //player_obj.GetComponent<Player_Stats>().TakeDamage(5);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -80,22 +89,7 @@ public class EnemyScript : MonoBehaviour
         Attacked = false;
         this.GetComponent<Animator>().ResetTrigger("attack");
         //player_obj.GetComponent<CapsuleCollider>().enabled = true;
-        //player_obj.GetComponent<Fighting_Script>().canMove = true;
         //this.GetComponent<CapsuleCollider>().enabled = true;
-        return;
-    }
-
-    private void SearchWalkPoint() {
-
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, groundLayer)) {
-            walkPointExist = true;
-        }
-
         return;
     }
 

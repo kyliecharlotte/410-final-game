@@ -1,4 +1,6 @@
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 
 public class Mace_PickUp : MonoBehaviour
@@ -10,6 +12,11 @@ public class Mace_PickUp : MonoBehaviour
     public bool collide;
     public GameObject player;
     public GameObject mace;
+
+    public LayerMask enemyLayer;
+
+    public float sightRange, attackRange;
+    public bool enemyInSightRange, enemyInAttackRange;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,15 +26,28 @@ public class Mace_PickUp : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+
+        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+
+        enemyInSightRange = Physics.CheckSphere(transform.position, sightRange, enemyLayer);
+        enemyInAttackRange = Physics.CheckSphere(transform.position, attackRange, enemyLayer);
+
+        foreach (Collider enemy in enemiesInRange) {
+            Vector3 dir = (player.transform.position - enemy.transform.position).normalized;
+            float angle = Vector3.Angle(player.transform.forward, dir);
+            //float angle = Vector3.Angle(new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical")),dir);
+            if (enemyInAttackRange && enemyInSightRange && Input.GetKeyDown(KeyCode.E) && (180 - angle) < 45f) {
+                    Debug.Log(180 - angle);
+                    player.GetComponent<Player_Stats>().MaceAttack(mace, enemy.gameObject);
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log(collide);
         // 8 = Player layer
         if (collide == false) {
         if (other.gameObject.layer == 8) {
@@ -45,16 +65,16 @@ public class Mace_PickUp : MonoBehaviour
         }
         }
 
-        if (collide == true) {
+        /*if (collide == true) {
                 if (other.gameObject.layer == 9) {
                     if (Input.GetKeyDown(KeyCode.E)) {
                         player.GetComponent<Player_Stats>().MaceAttack(mace, other.gameObject);
                     }
                 }
-        }
+        }*/
     }
 
-    void OnTriggerStay(Collider other) {
+    /*void OnTriggerStay(Collider other) {
         if (collide == true) {
             if (other.gameObject.layer == 9) {
                 if (Input.GetKeyDown(KeyCode.E)) {
@@ -62,5 +82,5 @@ public class Mace_PickUp : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 }

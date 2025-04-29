@@ -30,7 +30,6 @@ public class Level_Start_Doors : MonoBehaviour
 
     void CheckDoor() {
 
-        Debug.Log((doors.transform.position - player.transform.position).magnitude);
         if (((doors.transform.position - player.transform.position).magnitude < 10f) && (opened == false)) {
             GameObject door_one = doors.gameObject.transform.GetChild(0).gameObject;
             GameObject door_two = doors.gameObject.transform.GetChild(1).gameObject;

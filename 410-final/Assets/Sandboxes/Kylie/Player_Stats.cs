@@ -14,6 +14,8 @@ public class Player_Stats : MonoBehaviour
 
     public GameObject player_dad;
 
+    public LayerMask enemyLayer;
+
     public bool HasWeapon;
 
     public GameObject curr_weapon;
@@ -86,7 +88,12 @@ public class Player_Stats : MonoBehaviour
         if (!Attacked) {
             Attacked = true;
             audioSource.Play();
-            enemy.GetComponent<EnemyScript>().TakeDamage(1);
+            if (Physics.CheckSphere(enemy.transform.position, 0.65f, enemyLayer)) {
+                enemy.GetComponent<EnemyScript>().TakeDamage(1);
+                Debug.Log("hit");
+                Debug.Log(enemy.GetComponent<EnemyScript>().ShowHealth());
+            }
+            //enemy.GetComponent<EnemyScript>().TakeDamage(1);
             enemy.GetComponent<EnemyScript>().canMove = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

@@ -2032,6 +2032,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 448002, guid: 64cb684f38ab4e547a77225cd823cf62, type: 3}
   m_PrefabInstance: {fileID: 415191398}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &424495935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 424495936}
+  m_Layer: 0
+  m_Name: Dining Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &424495936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424495935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -75.403275, y: 9.723579, z: -67.79104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &425928478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6852,7 +6883,7 @@ Transform:
   m_GameObject: {fileID: 1341220851}
   serializedVersion: 2
   m_LocalRotation: {x: -0.09224271, y: 0.60947424, z: 0.020873366, w: 0.7871446}
-  m_LocalPosition: {x: -96.1, y: 3.74, z: -61.5}
+  m_LocalPosition: {x: -80.9, y: 6.6, z: -56.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10418,3 +10449,4 @@ SceneRoots:
   - {fileID: 327149822}
   - {fileID: 638840017}
   - {fileID: 1770779644}
+  - {fileID: 424495936}

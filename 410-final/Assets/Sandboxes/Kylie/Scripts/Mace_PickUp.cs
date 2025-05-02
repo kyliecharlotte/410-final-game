@@ -11,6 +11,7 @@ public class Mace_PickUp : MonoBehaviour
     public string script;
     public bool collide;
     public GameObject player;
+    private bool attacked;
     public GameObject mace;
 
     public LayerMask enemyLayer;
@@ -21,15 +22,14 @@ public class Mace_PickUp : MonoBehaviour
     void Start()
     {
         //collide = false;
-        script = "Mace_PickUp";
         //mace.GetComponent<Animator>().Play(
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
-        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+        /*Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
 
         enemyInSightRange = Physics.CheckSphere(transform.position, sightRange, enemyLayer);
         enemyInAttackRange = Physics.CheckSphere(transform.position, attackRange, enemyLayer);
@@ -41,12 +41,31 @@ public class Mace_PickUp : MonoBehaviour
             if (enemyInAttackRange && enemyInSightRange && Input.GetKeyDown(KeyCode.E) && (180 - angle) < 55f) {
                     player.GetComponent<Player_Stats>().MaceAttack(mace, enemy.gameObject);
             }
+        }*/
+        if (collide == true) {
+            if (Input.GetMouseButtonDown(0)) {
+                player.GetComponent<Player_Stats>().MaceAttack_1(mace);
+            }
         }
+
+
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-
+        if (collide == true) {
+            if (mace.gameObject.GetComponent<Animator>().GetBool("mace_swing")) {
+                if (other.gameObject.layer == 9) {
+                    if (player.GetComponent<Player_Stats>().attacked == false) {
+                        player.GetComponent<Player_Stats>().attacked = true;
+                        Debug.Log("HIT");
+                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(1);
+                        player.GetComponent<Player_Stats>().ResetAttack();
+                    }
+                }
+            }
+        }
         // 8 = Player layer
         if (collide == false) {
         if (other.gameObject.layer == 8) {
@@ -57,13 +76,11 @@ public class Mace_PickUp : MonoBehaviour
             mace.gameObject.transform.parent = other.gameObject.transform;
             mace.gameObject.GetComponent<Light>().enabled= false;
             mace.gameObject.transform.rotation = Quaternion.Euler(80,0,0);
-            mace.GetComponent<CapsuleCollider>().radius = 1.5f;
             mace.GetComponent<Animator>().applyRootMotion = false;
             //mace.gameObject.GetComponent<CapsuleCollider>().enabled = false;
             collide = true;
         }
         }
-
         /*if (collide == true) {
                 if (other.gameObject.layer == 9) {
                     if (Input.GetKeyDown(KeyCode.E)) {
@@ -73,6 +90,22 @@ public class Mace_PickUp : MonoBehaviour
         }*/
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (collide == true) {
+            if (mace.gameObject.GetComponent<Animator>().GetBool("mace_swing")) {
+                Debug.Log("true");
+                if (other.gameObject.layer == 9) {
+                    if (player.GetComponent<Player_Stats>().attacked == false) {
+                        player.GetComponent<Player_Stats>().attacked = true;
+                        Debug.Log("HIT");
+                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(1);
+                        player.GetComponent<Player_Stats>().ResetAttack();
+                    }
+                }
+            }
+        }
+    }
     /*void OnTriggerStay(Collider other) {
         if (collide == true) {
             if (other.gameObject.layer == 9) {

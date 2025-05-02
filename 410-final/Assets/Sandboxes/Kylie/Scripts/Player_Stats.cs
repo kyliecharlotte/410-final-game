@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Player_Stats : MonoBehaviour
 {
     private int health;
 
+    public bool attacked;
     private bool enter = false;
 
     public GameObject player_dad;
@@ -25,8 +27,6 @@ public class Player_Stats : MonoBehaviour
     //public Animator animator;
     private float timeBetweenAttacks;
 
-    private Animation maceAttack;
-
     bool Attacked;
     public GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,6 +34,7 @@ public class Player_Stats : MonoBehaviour
     {
         health = 5;
         player = this.gameObject;
+        attacked = false;
         //animator = gameObject.GetComponent<Animator>();
     }
 
@@ -76,6 +77,16 @@ public class Player_Stats : MonoBehaviour
         }
     }
 
+    public void MaceAttack_1(GameObject mace) {
+        mace.GetComponent<Animator>().SetTrigger("mace_swing");
+        StartCoroutine(ResetMace(mace));
+    }
+
+    IEnumerator ResetMace(GameObject mace) {
+        yield return new WaitForSeconds(4);
+        mace.GetComponent<Animator>().ResetTrigger("mace_swing");
+    }
+
     public void MaceAttack (GameObject mace, GameObject enemy) {
         
         player.GetComponent<Fighting_Script>().canMove = false;
@@ -99,11 +110,15 @@ public class Player_Stats : MonoBehaviour
 
     }
 
-    private void ResetAttack () {
-        Attacked = false;
-        player.GetComponent<Fighting_Script>().canMove = true;
+    public void ResetAttack () {
+        Invoke(nameof(VariableChange),1.5f);
         return;
     }
+
+    private void VariableChange() {
+        attacked = false;
+    }
+
 
     void EndGame() {
         SceneManager.LoadScene("MainScene");

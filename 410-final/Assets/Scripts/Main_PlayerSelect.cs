@@ -11,11 +11,11 @@ public class Main_PlayerSelect : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-
         selectedCharacter = PlayerPrefs.GetInt(selectedCharacterName, 0);
         //make sure tags of children match order in player dropdown
         player = player.transform.GetChild(selectedCharacter).gameObject;
         player.SetActive(true);
+        Cursor.visible = false;
         //GameObject loadedPrefab = Resources.Load<GameObject>();
 
     }

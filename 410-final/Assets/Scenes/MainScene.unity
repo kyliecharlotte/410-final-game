@@ -438,7 +438,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -534,15 +534,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5499554889900253811, guid: 5e6a617ecf9074984acafddaccbd711f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.35
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: -5499554889900253811, guid: 5e6a617ecf9074984acafddaccbd711f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.56
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: -5499554889900253811, guid: 5e6a617ecf9074984acafddaccbd711f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.79
+      value: 17.76
       objectReference: {fileID: 0}
     - target: {fileID: -5499554889900253811, guid: 5e6a617ecf9074984acafddaccbd711f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -706,7 +706,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9000004
+  m_Radius: 1
   m_Height: 5.8300004
   m_Direction: 1
   m_Center: {x: -0.000000431844, y: -0.41499996, z: -0.00000008390671}
@@ -1500,7 +1500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.03327795, y: 0, z: 0, w: 0.99944615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.76, y: 3.5700002, z: -3.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1718,6 +1718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4775f852a75dc45798c95eea7b910717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacked: 0
   player_dad: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -1865,6 +1866,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &433436636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713390589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ed036f5e236475cb66c6a8f9e5ae35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &482096560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,7 +1964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482096560}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.03327795, y: 0, z: 0, w: 0.99944615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.76, y: 3.5700002, z: -3.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2032,10 +2045,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 482096560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4afa82ae3200b82408d605c3dbdd1e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookAtOffset: {x: 0, y: 0.2, z: 0}
+  Damping: 0
 --- !u!1 &482921615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,7 +2161,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -2685,6 +2698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4775f852a75dc45798c95eea7b910717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacked: 0
   player_dad: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -4737,7 +4751,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -5969,9 +5983,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &1680872347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6099,6 +6113,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: 6bab3129e7e194ae88b6c0cd6c8fba97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2059940884}
+    - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: 6bab3129e7e194ae88b6c0cd6c8fba97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2059940886}
     - targetCorrespondingSourceObject: {fileID: 5613888490375539885, guid: 6bab3129e7e194ae88b6c0cd6c8fba97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1680872354}
@@ -6310,7 +6327,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -6673,6 +6690,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: e0a992cae35a942259765372825814ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 398268621}
+    - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: e0a992cae35a942259765372825814ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 433436636}
     - targetCorrespondingSourceObject: {fileID: 5613888490375539885, guid: e0a992cae35a942259765372825814ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1897135323}
@@ -6912,7 +6932,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.13333334
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 822513779a38e47c1aecdd8940f9b480, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1995381191 stripped
 Transform:
@@ -7031,7 +7051,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -7305,6 +7325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4775f852a75dc45798c95eea7b910717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacked: 0
   player_dad: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -7331,6 +7352,18 @@ MonoBehaviour:
   playerBody: {fileID: 0}
   inputDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 2059940878}
+--- !u!114 &2059940886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059940878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ed036f5e236475cb66c6a8f9e5ae35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2069553367
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class Character_Customization : MonoBehaviour
     void Start()
     {
         // get chosen character value
+        Cursor.visible = true;
         selectedCharacter = PlayerPrefs.GetInt(selectedCharacterName, 0);
         Debug.Log(selectedCharacter);
         Debug.Log(characters[selectedCharacter]);

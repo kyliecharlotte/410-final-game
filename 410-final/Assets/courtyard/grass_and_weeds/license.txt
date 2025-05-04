@@ -1,0 +1,11 @@
+Model Information:
+* title:	Grass and weeds
+* source:	https://sketchfab.com/3d-models/grass-and-weeds-344af319c15d42da9e33d16bb534d95f
+* author:	Beccasaurus (https://sketchfab.com/beccastabler)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Grass and weeds" (https://sketchfab.com/3d-models/grass-and-weeds-344af319c15d42da9e33d16bb534d95f) by Beccasaurus (https://sketchfab.com/beccastabler) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

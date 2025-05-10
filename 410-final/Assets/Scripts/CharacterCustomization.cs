@@ -50,7 +50,7 @@ public class Character_Customization : MonoBehaviour
         // set preference to store it across files
         PlayerPrefs.SetInt(selectedCharacterName, selectedCharacter);
         HideAllCharacters();
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("castle");
     }
 
     // Update is called once per frame

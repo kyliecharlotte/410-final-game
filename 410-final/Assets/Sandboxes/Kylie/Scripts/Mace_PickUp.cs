@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Networking.PlayerConnection;
+
 using UnityEngine;
 
 public class Mace_PickUp : MonoBehaviour

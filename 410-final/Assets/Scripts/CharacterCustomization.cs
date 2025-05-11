@@ -24,9 +24,7 @@ public class Character_Customization : MonoBehaviour
         Debug.Log(characters[selectedCharacter]);
         player = Instantiate(characters[selectedCharacter], playerStart);
 
-        if (selectedCharacter == 0) {
-            player.SetActive(true);
-        }
+        player.SetActive(true);
 
         // Hard coding fixes for character selection
 

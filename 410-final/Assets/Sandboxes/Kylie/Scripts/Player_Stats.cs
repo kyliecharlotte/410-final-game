@@ -12,6 +12,7 @@ public class Player_Stats : MonoBehaviour
     private int health;
 
     public bool attacked;
+    public bool collide;
     private bool enter = false;
 
     public GameObject player_dad;
@@ -35,6 +36,7 @@ public class Player_Stats : MonoBehaviour
         health = 5;
         player = this.gameObject;
         attacked = false;
+        collide = false;
         //animator = gameObject.GetComponent<Animator>();
     }
 
@@ -64,7 +66,8 @@ public class Player_Stats : MonoBehaviour
     IEnumerator drop_item_timer(GameObject curr) {
         enter = true;
         yield return new WaitForSeconds(0.5f);
-        curr.GetComponent<Mace_PickUp>().collide = false;
+        collide = false;
+        HasWeapon = false;
         enter = false;
     }
 

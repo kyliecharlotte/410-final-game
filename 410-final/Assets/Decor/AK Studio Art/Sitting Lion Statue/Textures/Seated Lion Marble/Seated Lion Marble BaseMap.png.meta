@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fcdb315f45b0f704482c0688e3acea7e
+guid: 01a54c747ee35894baadd147a78c28b0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,3 +121,11 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260994
+  packageName: Sitting Lion Statue
+  packageVersion: 1.0
+  assetPath: Assets/AK Studio Art/Sitting Lion Statue/Textures/Seated Lion Marble/Seated
+    Lion Marble BaseMap.png
+  uploadId: 675463

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f38eaf86bad01e47a9bc59a16c7153c
+guid: 266e8e2ebe6430f4dbb937eba0d97148
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,3 +121,11 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260994
+  packageName: Sitting Lion Statue
+  packageVersion: 1.0
+  assetPath: Assets/AK Studio Art/Sitting Lion Statue/Textures/Seated Lion Metal/Seated
+    Lion Metal BaseMap.png
+  uploadId: 675463

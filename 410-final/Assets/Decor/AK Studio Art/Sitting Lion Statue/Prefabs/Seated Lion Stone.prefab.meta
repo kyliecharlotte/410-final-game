@@ -1,7 +1,14 @@
 fileFormatVersion: 2
-guid: 0e219e2c093c9ac4289af529d2616a8d
+guid: 4665189939fc5ad46b7667326270073c
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260994
+  packageName: Sitting Lion Statue
+  packageVersion: 1.0
+  assetPath: Assets/AK Studio Art/Sitting Lion Statue/Prefabs/Seated Lion Stone.prefab
+  uploadId: 675463

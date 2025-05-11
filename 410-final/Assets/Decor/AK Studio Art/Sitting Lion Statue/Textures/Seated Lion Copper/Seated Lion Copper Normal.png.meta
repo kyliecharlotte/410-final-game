@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0f25209e0bcbb947b9f1ca42f8107dd
+guid: a6f753399171c29439dfa33d5f4cd512
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,3 +121,11 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260994
+  packageName: Sitting Lion Statue
+  packageVersion: 1.0
+  assetPath: Assets/AK Studio Art/Sitting Lion Statue/Textures/Seated Lion Copper/Seated
+    Lion Copper Normal.png
+  uploadId: 675463

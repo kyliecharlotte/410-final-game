@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de7cc56ef38e3184f857c02eeee12bb8
+guid: 67bedc9fe37571644a196dfe337b0986
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,3 +121,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260994
+  packageName: Sitting Lion Statue
+  packageVersion: 1.0
+  assetPath: Assets/AK Studio Art/Sitting Lion Statue/Textures/Sky HDRI/Sky HDRI.exr
+  uploadId: 675463

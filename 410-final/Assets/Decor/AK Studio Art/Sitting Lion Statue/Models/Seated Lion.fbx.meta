@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cb45d61fa7ce78041867773b28a5bf1a
+guid: f0eab86cdde01fe4e86c79b23fb6e34a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -105,3 +105,10 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260994
+  packageName: Sitting Lion Statue
+  packageVersion: 1.0
+  assetPath: Assets/AK Studio Art/Sitting Lion Statue/Models/Seated Lion.fbx
+  uploadId: 675463

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2ad2af2a080c64644820b32641f9c157
+guid: c89750f443c164049bce17f4318e19a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,3 +121,11 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260994
+  packageName: Sitting Lion Statue
+  packageVersion: 1.0
+  assetPath: Assets/AK Studio Art/Sitting Lion Statue/Textures/Seated Lion Stone/Seated
+    Lion Stone Normal.png
+  uploadId: 675463

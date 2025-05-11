@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6549ce758cb793b43ae777c15416c23b
+guid: fdbf9ee5530b97f439e30fdce4a0398a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -104,3 +104,10 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 283597
+  packageName: Wooden Cupboard
+  packageVersion: 1.0
+  assetPath: Assets/Cupboard/Meshes/Cupboard.fbx
+  uploadId: 660285

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 81220d1024d07ee449877f80c7347fdc
+guid: 200fde73f4379014c9af577a726a7486
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,3 +121,11 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260994
+  packageName: Sitting Lion Statue
+  packageVersion: 1.0
+  assetPath: Assets/AK Studio Art/Sitting Lion Statue/Textures/Seated Lion Oxidized
+    Copper/Seated Lion Oxidized Copper BaseMap.png
+  uploadId: 675463

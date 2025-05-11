@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e9eff2c125aac5498704e13e832f889
+guid: 7e30c728e2b2a0f44971dabc30686da3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -133,3 +133,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 283597
+  packageName: Wooden Cupboard
+  packageVersion: 1.0
+  assetPath: Assets/Cupboard/Textures/4096/Cupboard_Albedo.png
+  uploadId: 660285

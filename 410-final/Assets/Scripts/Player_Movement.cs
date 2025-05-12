@@ -9,6 +9,9 @@ public class Player_Movement : MonoBehaviour
     public Vector3 inputDirection;
     public GameObject player;
     private float playerSpeed = 6.0f;
+
+    private AudioSource walkAudio;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +19,9 @@ public class Player_Movement : MonoBehaviour
         player = script.returnPlayer();
         controller = player.GetComponent<CharacterController>();
         playerBody = player.transform;
+
+        // Get the AudioSource from the player
+        walkAudio = player.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +41,18 @@ public class Player_Movement : MonoBehaviour
         } else if (Input.GetAxisRaw("Horizontal") < 0) {
             RotatePlayer(-1);
         }*/
+
+        if (inputDirection.magnitude > 0.01f) {
+            // Play the walking sound if not already playing
+            if (!walkAudio.isPlaying) {
+                walkAudio.Play();
+            }
+        } else {
+            // Stop the walking sound if the player is not moving
+            if (walkAudio.isPlaying) {
+                walkAudio.Stop();
+            }
+        }
 
         if (inputDirection.magnitude > 0.01f) {
             inputDirection.Normalize();

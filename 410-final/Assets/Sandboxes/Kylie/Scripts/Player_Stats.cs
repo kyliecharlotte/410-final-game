@@ -135,10 +135,10 @@ public class Player_Stats : MonoBehaviour
         
         float mouseY = Mathf.Clamp01(Input.mousePosition.y / Screen.height);
 
-        float release = Mathf.Lerp(20f, -50f, mouseY);
+        float release = Mathf.Lerp(18f, -50f, mouseY);
         Vector3 dir = transform.forward;
         Vector3 axis = transform.right;
-        float arrow_speed = 16f;
+        float arrow_speed = 16.5f;
 
         Vector3 angle = Quaternion.AngleAxis(release, axis) * dir;
         GameObject arrow = Instantiate(arrowPrefab, crossbow.transform.position, crossbow.transform.rotation);

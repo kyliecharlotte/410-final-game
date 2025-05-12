@@ -62,6 +62,7 @@ public class Crossbow_PickUp : MonoBehaviour
                     //crossbow.GetComponent<Animator>().applyRootMotion = false;
                     player_script.collide = true;
                     Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Locked;
                     Cursor.SetCursor(bow_cursor, Vector2.zero, CursorMode.Auto);
                 }
             }

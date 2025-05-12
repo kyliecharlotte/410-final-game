@@ -1215,6 +1215,7 @@ MonoBehaviour:
   playerChoices:
   - {fileID: 1551765782}
   - {fileID: 691841506}
+  lil_cursor: {fileID: 2800000, guid: ab45e463e52fe8c49869828ced138ece, type: 3}
   selectedCharacter: 0
   mainScene: CharacterCustomization
   clickSound: {fileID: 0}

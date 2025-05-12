@@ -10,6 +10,7 @@ TagManager:
   - 2
   - Mace_Weapon
   - on-click
+  - Crossbow_Weapon
   layers:
   - Default
   - TransparentFX

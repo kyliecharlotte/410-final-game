@@ -166,6 +166,7 @@ MonoBehaviour:
   characters:
   - {fileID: 669594355}
   - {fileID: 1363549473}
+  lil_cursor: {fileID: 2800000, guid: ab45e463e52fe8c49869828ced138ece, type: 3}
   camera_ref: {fileID: 397501155}
   playerStart: {fileID: 1307727675}
   player: {fileID: 669594355}

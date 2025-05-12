@@ -9,6 +9,7 @@ public class Character_Customization : MonoBehaviour
 {
 
     public GameObject[] characters;
+    public Texture2D lil_cursor;
     public Transform camera_ref;
     public Transform playerStart;
     int selectedCharacter;
@@ -19,6 +20,8 @@ public class Character_Customization : MonoBehaviour
     {
         // get chosen character value
         Cursor.visible = true;
+        Cursor.SetCursor(lil_cursor, Vector2.zero, CursorMode.Auto);
+        Cursor.lockState = CursorLockMode.None;
         selectedCharacter = PlayerPrefs.GetInt(selectedCharacterName, 0);
         Debug.Log(selectedCharacter);
         Debug.Log(characters[selectedCharacter]);

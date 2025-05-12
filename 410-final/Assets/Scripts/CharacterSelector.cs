@@ -69,6 +69,8 @@ public class CharacterSelector : MonoBehaviour
     }
 
     public void StartGame() {
+
+        clickSound.Play(); 
         // set preference to store it across files
         PlayerPrefs.SetInt(selectedCharacterName, selectedCharacter);
         HideAllCharacters();

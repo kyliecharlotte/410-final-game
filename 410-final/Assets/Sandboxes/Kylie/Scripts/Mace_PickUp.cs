@@ -83,6 +83,7 @@ public class Mace_PickUp : MonoBehaviour
             if (mace.gameObject.GetComponent<Animator>().GetBool("mace_swing")) {
                 if (other.gameObject.layer == 9) {
                     if (player.GetComponent<Player_Stats>().attacked == false) {
+                        Debug.Log("HIT");
                         player.GetComponent<Player_Stats>().attacked = true;
     
                         other.gameObject.GetComponent<EnemyScript>().TakeDamage(1);

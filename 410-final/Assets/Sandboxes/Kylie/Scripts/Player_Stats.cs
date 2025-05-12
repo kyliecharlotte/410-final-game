@@ -72,6 +72,7 @@ public class Player_Stats : MonoBehaviour
                 
                 //if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
                 Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 StartCoroutine(drop_item_timer(curr));
                 //}
@@ -159,6 +160,6 @@ public class Player_Stats : MonoBehaviour
 
 
     void EndGame() {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("castle");
     }
 }

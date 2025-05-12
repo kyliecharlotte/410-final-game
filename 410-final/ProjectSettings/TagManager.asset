@@ -11,6 +11,7 @@ TagManager:
   - Mace_Weapon
   - on-click
   - Crossbow_Weapon
+  - Riddle
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Enemy
   - Weapon
   - Exit_Level_Door
-  - 
+  - Riddle
   - 
   - 
   - 

@@ -31374,9 +31374,6 @@ PrefabInstance:
       addedObject: {fileID: 850906792}
     - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: cdb54e4e3955c4350bacc918bfe54d90, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 850906791}
-    - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: cdb54e4e3955c4350bacc918bfe54d90, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 850906790}
     - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: cdb54e4e3955c4350bacc918bfe54d90, type: 3}
       insertIndex: -1
@@ -31407,6 +31404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4775f852a75dc45798c95eea7b910717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 0}
+  bow_curser: {fileID: 0}
   attacked: 0
   collide: 0
   player_dad: {fileID: 0}
@@ -31430,26 +31429,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  mainScript: {fileID: 0}
+  mainScript: {fileID: 1605488235}
   canMove: 0
   playerBody: {fileID: 0}
   inputDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 850906788}
---- !u!114 &850906791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850906788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6feee6a8d86dd491b972f3d822f4026f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  opened: 0
-  doors: {fileID: 0}
-  mainScript: {fileID: 1605488235}
 --- !u!143 &850906792
 CharacterController:
   m_ObjectHideFlags: 0
@@ -48305,9 +48289,6 @@ PrefabInstance:
       addedObject: {fileID: 1304037737}
     - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: ba98444ae93b84a9b97542645cb40bc8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1304037738}
-    - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: ba98444ae93b84a9b97542645cb40bc8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1304037740}
     - targetCorrespondingSourceObject: {fileID: 2107409826236812522, guid: ba98444ae93b84a9b97542645cb40bc8, type: 3}
       insertIndex: -1
@@ -48374,21 +48355,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.08, z: -0.3}
---- !u!114 &1304037738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304037735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6feee6a8d86dd491b972f3d822f4026f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  opened: 0
-  doors: {fileID: 0}
-  mainScript: {fileID: 0}
 --- !u!114 &1304037739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48401,6 +48367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4775f852a75dc45798c95eea7b910717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 0}
+  bow_curser: {fileID: 0}
   attacked: 0
   collide: 0
   player_dad: {fileID: 0}
@@ -48424,7 +48392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  mainScript: {fileID: 0}
+  mainScript: {fileID: 1605488235}
   canMove: 0
   playerBody: {fileID: 0}
   inputDirection: {x: 0, y: 0, z: 0}

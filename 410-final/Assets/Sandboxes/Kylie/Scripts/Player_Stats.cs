@@ -42,6 +42,7 @@ public class Player_Stats : MonoBehaviour
         player = this.gameObject;
         attacked = false;
         collide = false;
+        Cursor.lockState = CursorLockMode.Locked;
         //animator = gameObject.GetComponent<Animator>();
     }
 

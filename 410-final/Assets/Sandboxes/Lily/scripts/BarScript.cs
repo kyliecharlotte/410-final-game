@@ -11,6 +11,7 @@ public class BarScript : MonoBehaviour
     [SerializeField]
     private Image content;
     public float MaxValue { get; set; }
+    // public Player_Stats script;
     public float Value
     {
         set

@@ -133,6 +133,10 @@ public class Player_Stats : MonoBehaviour
     }
 
 */
+
+    // public int returnHealth() {
+    //     return health;
+    // }
     public void CrossbowAttack(GameObject crossbow) {
         
         float mouseY = Mathf.Clamp01(Input.mousePosition.y / Screen.height);

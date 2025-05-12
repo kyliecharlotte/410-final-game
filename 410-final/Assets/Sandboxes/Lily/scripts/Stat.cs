@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 
+
 [Serializable]
 public class Stat 
 {
@@ -9,7 +10,8 @@ public class Stat
     [SerializeField]
     private float maxVal;
     [SerializeField]
-    private float currentVal;
+    private int currentVal;
+    
 
     public float CurrentVal
     {
@@ -19,7 +21,7 @@ public class Stat
         }
         set
         {
-            this.currentVal = Mathf.Clamp(value, 0, MaxVal);
+            this.currentVal = (float) Mathf.Clamp((int)value, 0, (int)MaxVal);
             bar.Value = currentVal;
         }
     }

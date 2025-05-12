@@ -9,6 +9,7 @@ TagManager:
   - 1
   - 2
   - Mace_Weapon
+  - on-click
   layers:
   - Default
   - TransparentFX

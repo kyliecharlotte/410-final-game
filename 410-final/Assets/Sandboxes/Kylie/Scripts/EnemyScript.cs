@@ -19,9 +19,11 @@ public class EnemyScript : MonoBehaviour
     public GameObject enemy_dad;
     public LayerMask groundLayer, playerLayer;
     public Vector3 walkPoint;
-    bool walkPointExist;
     public float walkPointRange;
     private NavMeshPath path;
+
+    public GameObject[] waypoints;
+    int currentWP = 0;
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -42,24 +44,16 @@ public class EnemyScript : MonoBehaviour
 
     private void Patroling() {
 
-        //donut.isStopped = false;
-        //donut.speed = 4f;
-
-        /*if (!walkPointExist) 
-        { 
-            SearchWalkPoint();
+        if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 4) {
+            currentWP++;
         }
 
-        if (walkPointExist) {
-            donut.SetDestination(walkPoint);
+        if (currentWP >= waypoints.Length) {
+            currentWP = 0;
         }
 
-        Vector3 distToWalkPoint = transform.position - walkPoint;
-
-        if (distToWalkPoint.magnitude < 1f) {
-            walkPointExist = false;
-        }*/
-        //SearchWalkPoint();
+        this.transform.LookAt(waypoints[currentWP].transform);
+        this.transform.Translate(0,0,speed * Time.deltaTime);
 
     }
 
@@ -75,7 +69,7 @@ public class EnemyScript : MonoBehaviour
         if (!Attacked) {
             Attacked = true;
             this.GetComponent<Animator>().SetTrigger("attack");
-            this.GetComponent<Animator>().Play("broccoli_attack");
+            //this.GetComponent<Animator>().Play("broccoli_attack");
             //this.GetComponent<EnemyScript>().canMove = true;
             if (Physics.CheckSphere(player_obj.transform.position, 0.75f, playerLayer)) {
                 player_obj.GetComponent<Player_Stats>().TakeDamage(3);

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Data;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
@@ -10,6 +11,10 @@ using UnityEngine.SceneManagement;
 public class Player_Stats : MonoBehaviour
 {
     private int health;
+
+    public GameObject arrowPrefab;
+
+    public Texture2D bow_curser;
 
     public bool attacked;
     public bool collide;
@@ -23,12 +28,12 @@ public class Player_Stats : MonoBehaviour
 
     public GameObject curr_weapon;
 
+    private bool aim_bow;
+
     public AudioSource audioSource;
 
     //public Animator animator;
     private float timeBetweenAttacks;
-
-    bool Attacked;
     public GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,11 +57,21 @@ public class Player_Stats : MonoBehaviour
 
     public void DropWeapon(GameObject curr) {
         curr.transform.parent = null;
-        curr.GetComponent<Animator>().applyRootMotion = true;
+        
         curr.GetComponent<Light>().enabled = true;
 
         if (curr.tag == "Mace_Weapon") {
+                curr.GetComponent<Animator>().applyRootMotion = true;
                 //if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
+                StartCoroutine(drop_item_timer(curr));
+                //}
+        }
+
+        if (curr.tag == "Crossbow_Weapon") {
+                
+                //if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
+                Cursor.visible = false;
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 StartCoroutine(drop_item_timer(curr));
                 //}
         }
@@ -64,9 +79,11 @@ public class Player_Stats : MonoBehaviour
     }
 
     IEnumerator drop_item_timer(GameObject curr) {
+
         enter = true;
         yield return new WaitForSeconds(0.5f);
         collide = false;
+        curr_weapon = null;
         HasWeapon = false;
         enter = false;
     }
@@ -86,10 +103,10 @@ public class Player_Stats : MonoBehaviour
     }
 
     IEnumerator ResetMace(GameObject mace) {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(1f);
         mace.GetComponent<Animator>().ResetTrigger("mace_swing");
     }
-
+/*
     public void MaceAttack (GameObject mace, GameObject enemy) {
         
         player.GetComponent<Fighting_Script>().canMove = false;
@@ -99,12 +116,12 @@ public class Player_Stats : MonoBehaviour
 
         //mace.GetComponent<Animator>().Play("mace");
 
-        if (!Attacked) {
-            Attacked = true;
+        if (!attacked) {
+            attacked = true;
             audioSource.Play();
             if (Physics.CheckSphere(enemy.transform.position, 0.75f, enemyLayer)) {
                 enemy.GetComponent<EnemyScript>().TakeDamage(1);
-                Debug.Log(enemy.GetComponent<EnemyScript>().ShowHealth());
+                
             }
             //enemy.GetComponent<EnemyScript>().TakeDamage(1);
             enemy.GetComponent<EnemyScript>().canMove = true;
@@ -113,8 +130,25 @@ public class Player_Stats : MonoBehaviour
 
     }
 
+*/
+    public void CrossbowAttack(GameObject crossbow) {
+        
+        float mouseY = Mathf.Clamp01(Input.mousePosition.y / Screen.height);
+
+        float release = Mathf.Lerp(20f, -50f, mouseY);
+        Vector3 dir = transform.forward;
+        Vector3 axis = transform.right;
+        float arrow_speed = 16f;
+
+        Vector3 angle = Quaternion.AngleAxis(release, axis) * dir;
+        GameObject arrow = Instantiate(arrowPrefab, crossbow.transform.position, crossbow.transform.rotation);
+        arrow.GetComponent<Rigidbody>().linearVelocity = angle.normalized * arrow_speed;
+
+        arrow.GetComponent<Arrow_Shot>().shot = true;
+    }
+
     public void ResetAttack () {
-        Invoke(nameof(VariableChange),1.5f);
+        Invoke(nameof(VariableChange),1.2f);
         return;
     }
 

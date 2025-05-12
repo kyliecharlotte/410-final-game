@@ -21,7 +21,8 @@ public class Stat
         }
         set
         {
-            this.currentVal = (float) Mathf.Clamp((int)value, 0, (int)MaxVal);
+            this.currentVal = Mathf.Clamp((int)value, 0, (int)MaxVal);
+
             bar.Value = currentVal;
         }
     }

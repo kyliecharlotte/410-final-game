@@ -6,15 +6,24 @@ public class WeaponIconUI : MonoBehaviour
     [SerializeField] private Image weaponIconImage;
     [SerializeField] private Sprite maceIcon;
     [SerializeField] private Sprite crossbowIcon;
+    [SerializeField] private Sprite defaultIcon; // New line
+
 
     public void UpdateWeaponIcon(GameObject weapon)
     {
         Debug.Log("weapon change");
+        // if (weapon == null)
+        // {
+        //     weaponIconImage.enabled = false;
+        //     return;
+        // }
         if (weapon == null)
         {
-            weaponIconImage.enabled = false;
+            weaponIconImage.sprite = defaultIcon;
+            weaponIconImage.enabled = true;
             return;
         }
+
 
         if (weapon.CompareTag("Mace_Weapon"))
         {

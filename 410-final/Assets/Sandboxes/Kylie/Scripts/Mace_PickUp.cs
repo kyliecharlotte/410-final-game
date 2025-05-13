@@ -64,6 +64,14 @@ public class Mace_PickUp : MonoBehaviour
                 player = other.gameObject;
                 player.GetComponent<Player_Stats>().HasWeapon = true;
                 player.GetComponent<Player_Stats>().curr_weapon = mace;
+                // change icon
+                if (player_script.weaponIconUI != null)
+                {
+                    Debug.Log("weapon change");
+                    player_script.weaponIconUI.UpdateWeaponIcon(mace);
+                }
+
+
                 mace.gameObject.transform.position = mace.gameObject.transform.position - new Vector3(0, mace.transform.position.y, 0);
                 mace.gameObject.transform.parent = other.gameObject.transform;
                 mace.gameObject.GetComponent<Light>().enabled= false;

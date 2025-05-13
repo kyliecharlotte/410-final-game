@@ -51,6 +51,12 @@ public class Crossbow_PickUp : MonoBehaviour
                 if (player.GetComponent<Player_Stats>().HasWeapon == false) {
                     player.GetComponent<Player_Stats>().HasWeapon = true;
                     player.GetComponent<Player_Stats>().curr_weapon = crossbow;
+                    // change icon
+                    if (player_script.weaponIconUI != null)
+                    {
+                        Debug.Log("weapon change");
+                        player_script.weaponIconUI.UpdateWeaponIcon(crossbow);
+                    }
 
                     crossbow.transform.rotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y + 90, 0);
                     crossbow.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z);

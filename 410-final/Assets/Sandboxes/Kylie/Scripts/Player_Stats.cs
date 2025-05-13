@@ -10,6 +10,10 @@ using UnityEngine.SceneManagement;
 
 public class Player_Stats : MonoBehaviour
 {
+    [SerializeField] private Stat healthStat;
+    [SerializeField] private HealthBarUI healthBarUI;
+    public WeaponIconUI weaponIconUI;
+
     private int health;
 
     public GameObject arrowPrefab;
@@ -36,14 +40,72 @@ public class Player_Stats : MonoBehaviour
     private float timeBetweenAttacks;
     public GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // void Start()
+    // {
+
+    //     health = 5;
+
+    //     if (healthStat == null)
+    //         healthStat = new Stat(health);
+
+    //     healthStat.MaxVal = health;  // You must set MaxVal too!
+    //     healthStat.CurrentVal = health;
+    //     healthStat.Initialize();
+
+    //     if (healthBarUI == null)
+    //     {
+    //         Debug.LogError("HealthBarUI is not assigned in the Inspector!");
+    //     }
+    //     else
+    //     {
+    //         healthBarUI.SetMaxValue(healthStat.MaxVal);
+    //         // UpdateHealthUI(); // Ensure UI starts with correct health
+    //     }
+
+    //     player = this.gameObject;
+    //     attacked = false;
+    //     collide = false;
+    //     Cursor.lockState = CursorLockMode.Locked;
+    //     //animator = gameObject.GetComponent<Animator>();
+    // }
+
     void Start()
     {
         health = 5;
+
+        if (healthStat == null)
+            healthStat = new Stat(health);
+
+        healthStat.MaxVal = health;
+        healthStat.CurrentVal = health;
+        healthStat.Initialize();
+
         player = this.gameObject;
         attacked = false;
         collide = false;
         Cursor.lockState = CursorLockMode.Locked;
-        //animator = gameObject.GetComponent<Animator>();
+
+        // Ensuring HealthBarUI is correctly initialized
+        StartCoroutine(InitializeHealthBarUI());
+    }
+
+    IEnumerator InitializeHealthBarUI()
+    {
+        yield return new WaitForEndOfFrame(); // Wait for UI to be created
+
+        if (healthBarUI == null)
+        {
+            healthBarUI = FindObjectOfType<HealthBarUI>(); // Find the UI component after it's created
+        }
+
+        if (healthBarUI == null)
+        {
+            Debug.LogError("HealthBarUI is not assigned in the Inspector!");
+        }
+        else
+        {
+            healthBarUI.SetMaxValue(healthStat.MaxVal);
+        }
     }
 
     // Update is called once per frame
@@ -53,6 +115,10 @@ public class Player_Stats : MonoBehaviour
             if (HasWeapon == true) {
                 DropWeapon(curr_weapon);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.T)) {
+            TakeDamage(1);
         }
     }
 
@@ -77,6 +143,8 @@ public class Player_Stats : MonoBehaviour
                 StartCoroutine(drop_item_timer(curr));
                 //}
         }
+        weaponIconUI.UpdateWeaponIcon(curr_weapon);
+
     
     }
 
@@ -88,13 +156,19 @@ public class Player_Stats : MonoBehaviour
         curr_weapon = null;
         HasWeapon = false;
         enter = false;
+        weaponIconUI.UpdateWeaponIcon(curr_weapon);
+
     }
 
     public void TakeDamage (int dmg) {
         
         health -= dmg;
+        healthStat.CurrentVal = health;
 
-        if (health <= 0) {
+        healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal);
+
+        if (healthStat.CurrentVal <= 0)
+        {
             Invoke(nameof(EndGame), 1.0f);
         }
     }
@@ -166,4 +240,6 @@ public class Player_Stats : MonoBehaviour
     void EndGame() {
         SceneManager.LoadScene("castle");
     }
+
+
 }

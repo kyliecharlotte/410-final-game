@@ -39,35 +39,6 @@ public class Player_Stats : MonoBehaviour
     //public Animator animator;
     private float timeBetweenAttacks;
     public GameObject player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    // void Start()
-    // {
-
-    //     health = 5;
-
-    //     if (healthStat == null)
-    //         healthStat = new Stat(health);
-
-    //     healthStat.MaxVal = health;  // You must set MaxVal too!
-    //     healthStat.CurrentVal = health;
-    //     healthStat.Initialize();
-
-    //     if (healthBarUI == null)
-    //     {
-    //         Debug.LogError("HealthBarUI is not assigned in the Inspector!");
-    //     }
-    //     else
-    //     {
-    //         healthBarUI.SetMaxValue(healthStat.MaxVal);
-    //         // UpdateHealthUI(); // Ensure UI starts with correct health
-    //     }
-
-    //     player = this.gameObject;
-    //     attacked = false;
-    //     collide = false;
-    //     Cursor.lockState = CursorLockMode.Locked;
-    //     //animator = gameObject.GetComponent<Animator>();
-    // }
 
     void Start()
     {
@@ -87,6 +58,7 @@ public class Player_Stats : MonoBehaviour
 
         // Ensuring HealthBarUI is correctly initialized
         StartCoroutine(InitializeHealthBarUI());
+        StartCoroutine(InitializeWeaponIconUI());
     }
 
     IEnumerator InitializeHealthBarUI()
@@ -107,6 +79,22 @@ public class Player_Stats : MonoBehaviour
             healthBarUI.SetMaxValue(healthStat.MaxVal);
         }
     }
+
+    IEnumerator InitializeWeaponIconUI()
+    {
+        yield return new WaitForEndOfFrame(); // Wait for UI to be created
+
+        if (weaponIconUI == null)
+        {
+            weaponIconUI = FindObjectOfType<WeaponIconUI>(); // Find the UI component after it's created
+        }
+
+        if (weaponIconUI == null)
+        {
+            Debug.LogError("WeaponIconUI is not assigned in the Inspector!");
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -143,7 +131,7 @@ public class Player_Stats : MonoBehaviour
                 StartCoroutine(drop_item_timer(curr));
                 //}
         }
-        weaponIconUI.UpdateWeaponIcon(curr_weapon);
+        // weaponIconUI.UpdateWeaponIcon(curr_weapon);
 
     
     }

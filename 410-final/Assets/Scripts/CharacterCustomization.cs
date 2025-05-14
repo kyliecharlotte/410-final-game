@@ -20,7 +20,6 @@ public class Character_Customization : MonoBehaviour
     {
         // get chosen character value
         Cursor.visible = true;
-        Cursor.SetCursor(lil_cursor, Vector2.zero, CursorMode.Auto);
         Cursor.lockState = CursorLockMode.None;
         selectedCharacter = PlayerPrefs.GetInt(selectedCharacterName, 0);
         Debug.Log(selectedCharacter);

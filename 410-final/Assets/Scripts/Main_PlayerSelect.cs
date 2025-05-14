@@ -15,7 +15,7 @@ public class Main_PlayerSelect : MonoBehaviour
         //make sure tags of children match order in player dropdown
         player = player.transform.GetChild(selectedCharacter).gameObject;
         player.SetActive(true);
-        Cursor.visible = false;
+        //Cursor.visible = false;
         //GameObject loadedPrefab = Resources.Load<GameObject>();
 
     }

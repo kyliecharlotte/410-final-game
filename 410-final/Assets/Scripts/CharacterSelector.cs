@@ -18,7 +18,6 @@ public class CharacterSelector : MonoBehaviour
     void Start()
     {
         Cursor.visible = true;
-        Cursor.SetCursor(lil_cursor, Vector2.zero, CursorMode.Auto);
         Cursor.lockState = CursorLockMode.None;
         HideAllCharacters();
         selectedCharacter = 0;

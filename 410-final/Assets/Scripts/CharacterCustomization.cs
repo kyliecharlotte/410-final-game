@@ -53,6 +53,13 @@ public class Character_Customization : MonoBehaviour
         SceneManager.LoadScene("castle");
     }
 
+    public void Tutorial()
+    {
+        PlayerPrefs.SetInt(selectedCharacterName, selectedCharacter);
+        HideAllCharacters();
+        SceneManager.LoadScene("Tutorial");
+    }
+
     // Update is called once per frame
     void Update()
     {

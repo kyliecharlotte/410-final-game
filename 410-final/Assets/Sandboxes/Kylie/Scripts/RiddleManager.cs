@@ -38,7 +38,7 @@ public class RiddleManager : MonoBehaviour
 
     void Start()
     {
-        TestRiddleSystem();
+        // TestRiddleSystem();
     }
 
     private void TestRiddleSystem()
@@ -75,6 +75,11 @@ public class RiddleManager : MonoBehaviour
     {
         score += amt;
         UpdateUI();
+        if (score == 3) // When the score reaches 3, trigger the riddle
+        {
+            Debug.Log("Score is now 3! Triggering riddle...");
+            TriggerRiddle();
+        }
     }
 
     public int ReturnScore() 
@@ -98,8 +103,17 @@ public class RiddleManager : MonoBehaviour
         }
 
         (currentRiddle, correctAnswer) = riddleLoader.GetRiddle(1);
-        riddleUI.ShowRiddle(currentRiddle);
+
+        if (string.IsNullOrEmpty(currentRiddle))
+        {
+            Debug.LogError("No riddle found!");
+            return;
+        }
+
+        Debug.Log($"Triggered Riddle: {currentRiddle}");
+        riddleUI.ShowRiddle(currentRiddle); // Display the riddle UI
     }
+
 
     public bool CheckAnswer(string input)
     {

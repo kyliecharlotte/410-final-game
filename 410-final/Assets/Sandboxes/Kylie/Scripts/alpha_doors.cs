@@ -9,10 +9,10 @@ public class alpha_doors : MonoBehaviour
     {
         if (other.CompareTag("Player")) {
             Debug.Log(RiddleManager.instance.ReturnScore());
-            if (RiddleManager.instance.ReturnScore() == 3) {
-                 Debug.Log("hi");
-                door.gameObject.GetComponent<BoxCollider>().enabled = false;
-            }
+            // if (RiddleManager.instance.ReturnScore() == 3) {
+            //      Debug.Log("hi");
+            //     door.gameObject.GetComponent<BoxCollider>().enabled = false;
+            // }
         }
     }
 
@@ -20,10 +20,17 @@ public class alpha_doors : MonoBehaviour
     {
         if (other.CompareTag("Player")) {
             Debug.Log(RiddleManager.instance.ReturnScore());
-            if (RiddleManager.instance.ReturnScore() == 3) {
-                Debug.Log("hi");
-                door.gameObject.GetComponent<BoxCollider>().enabled = false;
-            }
+            // if (RiddleManager.instance.ReturnScore() == 3) {
+            //     Debug.Log("hi");
+            //     door.gameObject.GetComponent<BoxCollider>().enabled = false;
+            // }
         }
     }
+
+    public void DisableDoorCollider()
+    {
+        Debug.Log("Door unlocked via RiddleManager!");
+        door.gameObject.GetComponent<BoxCollider>().enabled = false;
+    }
+
 }

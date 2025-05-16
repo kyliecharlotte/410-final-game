@@ -11,5 +11,9 @@ public class Riddles : MonoBehaviour
             RiddleManager.instance.AddScore(val);
             Destroy(gameObject);
         }
+        if (RiddleManager.instance.ReturnScore() == 3) // All pieces collected
+        {
+            RiddleManager.instance.TriggerRiddle();
+        }
     }
 }

@@ -105,9 +105,9 @@ public class Player_Stats : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.T)) {
-            TakeDamage(1);
-        }
+        // if (Input.GetKeyDown(KeyCode.T)) {
+        //     TakeDamage(1);
+        // }
     }
 
     public void DropWeapon(GameObject curr) {

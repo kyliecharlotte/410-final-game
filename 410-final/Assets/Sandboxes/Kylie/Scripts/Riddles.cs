@@ -8,11 +8,13 @@ public class Riddles : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+
         if (audioSource == null)
         {
             Debug.LogError("No AudioSource found on Riddle GameObject!");
         }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

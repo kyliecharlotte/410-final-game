@@ -22,7 +22,7 @@ public class Riddles : MonoBehaviour
 
             if (audioSource != null)
             {
-                audioSource.Play();  // Play the pickup sound
+                audioSource.Play(); 
                 // Destroy the object after the clip finishes playing
                 Destroy(gameObject, audioSource.clip.length);
             }

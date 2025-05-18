@@ -65,9 +65,15 @@ public class Player_Stats : MonoBehaviour
     {
         yield return new WaitForEndOfFrame(); // Wait for UI to be created
 
-        if (healthBarUI == null)
+        GameObject canvas = GameObject.Find("Canvas"); // Ensure this matches your actual Canvas name
+
+        if (canvas != null)
         {
-            healthBarUI = FindObjectOfType<HealthBarUI>(); // Find the UI component after it's created
+            healthBarUI = canvas.GetComponentInChildren<HealthBarUI>(); // Only search within the Canvas
+        }
+        else
+        {
+            Debug.LogError("Canvas not found! Make sure the name matches.");
         }
 
         if (healthBarUI == null)
@@ -79,6 +85,7 @@ public class Player_Stats : MonoBehaviour
             healthBarUI.SetMaxValue(healthStat.MaxVal);
         }
     }
+
 
     IEnumerator InitializeWeaponIconUI()
     {

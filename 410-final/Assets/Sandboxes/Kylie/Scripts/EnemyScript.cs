@@ -3,14 +3,18 @@ using GLTFast;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
+using System;
+using System.Collections;
 
 public class EnemyScript : MonoBehaviour
 {
 
-    public float health = 5;
+    public int health = 5;
     public float speed = 5.2f;
 
     public bool canMove;
+    
 
     public NavMeshAgent donut;
     public Transform player;
@@ -30,6 +34,11 @@ public class EnemyScript : MonoBehaviour
     private bool Attacked;
     public float timeBetweenAttacks;
     public GameObject mainScript;
+
+    [SerializeField] private Stat healthStat;
+    [SerializeField] private HealthBarUI healthBarUI;
+    public string canvasName;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -40,7 +49,42 @@ public class EnemyScript : MonoBehaviour
         canMove = true;
         path = new NavMeshPath();
         donut.SetPath(path);
+
+        if (healthStat == null)
+            healthStat = new Stat(health);
+
+        healthStat.MaxVal = health;
+        healthStat.CurrentVal = health;
+        healthStat.Initialize();
+
+        StartCoroutine(InitializeHealthBarUI());
     }
+
+    IEnumerator InitializeHealthBarUI()
+    {
+        yield return new WaitForEndOfFrame(); // Wait for UI to be created
+
+        GameObject canvas = GameObject.Find(canvasName); // Ensure this matches your actual Canvas name
+
+        if (canvas != null)
+        {
+            healthBarUI = canvas.GetComponentInChildren<HealthBarUI>(); // Only search within the Canvas
+        }
+        else
+        {
+            Debug.LogError("Canvas not found! Make sure the name matches.");
+        }
+
+        if (healthBarUI == null)
+        {
+            Debug.LogError("HealthBarUI is not assigned in the Inspector!");
+        }
+        else
+        {
+            healthBarUI.SetMaxValue(healthStat.MaxVal);
+        }
+    }
+
 
     private void Patroling() {
 
@@ -90,8 +134,11 @@ public class EnemyScript : MonoBehaviour
     public void TakeDamage (int dmg) {
         
         health -= dmg;
+        healthStat.CurrentVal = health;
 
-        if (health <= 0) {
+        healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal);
+
+        if (healthStat.CurrentVal <= 0) {
             Invoke(nameof(DestroyEnemy), 0.5f);
         }
     }

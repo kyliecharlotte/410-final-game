@@ -20,11 +20,19 @@ public class Crossbow_PickUp : MonoBehaviour
 
     public float sightRange, attackRange;
     public bool enemyInSightRange, enemyInAttackRange;
+
+    private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
        player = script.returnPlayer();
        player_script = player.GetComponent<Player_Stats>();
+
+       audioSource = GetComponent<AudioSource>();
+       if (audioSource == null)
+        {
+            Debug.LogError("No AudioSource found on Crossbos PickUp GameObject!");
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +66,13 @@ public class Crossbow_PickUp : MonoBehaviour
                         player_script.weaponIconUI.UpdateWeaponIcon(crossbow);
                     }
 
+                    if (audioSource != null)
+                    {
+                        audioSource.Play(); 
+                        // Destroy the object after the clip finishes playing
+                        //Destroy(gameObject, audioSource.clip.length);
+                    }
+
                     crossbow.transform.rotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y + 90, 0);
                     crossbow.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z);
 
@@ -67,6 +82,7 @@ public class Crossbow_PickUp : MonoBehaviour
                     crossbow.gameObject.GetComponent<Light>().enabled= false;
                     //crossbow.GetComponent<Animator>().applyRootMotion = false;
                     player_script.collide = true;
+
                 }
             }
         }

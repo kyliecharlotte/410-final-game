@@ -4,6 +4,7 @@ public class Riddles : MonoBehaviour
 {
     public int val = 1;
     private AudioSource audioSource;
+    private bool triggered = false;
 
     private void Awake()
     {
@@ -18,13 +19,16 @@ public class Riddles : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (triggered) return;
+
         if (other.CompareTag("Player"))
         {
+            triggered = true;
             RiddleManager.instance.AddScore(val);
 
             if (audioSource != null)
             {
-                audioSource.Play(); 
+                audioSource.Play();
                 // Destroy the object after the clip finishes playing
                 Destroy(gameObject, audioSource.clip.length);
             }
@@ -33,10 +37,10 @@ public class Riddles : MonoBehaviour
                 Destroy(gameObject); // fallback if no AudioSource
             }
 
-            if (RiddleManager.instance.ReturnScore() == 3)
-            {
-                RiddleManager.instance.TriggerRiddle();
-            }
+            // if (RiddleManager.instance.ReturnScore() == 3)
+            // {
+            //     RiddleManager.instance.TriggerRiddle();
+            // }
         }
     }
 }

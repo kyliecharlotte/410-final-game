@@ -73,7 +73,9 @@ public class RiddleManager : MonoBehaviour
     // Update is called once per frame
     public void AddScore(int amt)
     {
+        Debug.Log($"Score before adding amt: {score} with amt: {amt}");
         score += amt;
+        Debug.Log($"Score in after add score: {score}");
         UpdateUI();
         if (score == 3) // When the score reaches 3, trigger the riddle
         {
@@ -84,6 +86,7 @@ public class RiddleManager : MonoBehaviour
 
     public int ReturnScore() 
     {
+        Debug.Log($"Score is: {score}");
         return score;
     }
     private void UpdateUI()

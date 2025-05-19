@@ -69,8 +69,6 @@ public class Crossbow_PickUp : MonoBehaviour
                     if (audioSource != null)
                     {
                         audioSource.Play(); 
-                        // Destroy the object after the clip finishes playing
-                        //Destroy(gameObject, audioSource.clip.length);
                     }
 
                     crossbow.transform.rotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y + 90, 0);

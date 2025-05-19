@@ -39,6 +39,10 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private HealthBarUI healthBarUI;
     public string canvasName;
 
+    public AudioSource attackAudioSource;
+    public AudioSource hurtAudioSource;
+    public AudioSource deathAudioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -58,6 +62,21 @@ public class EnemyScript : MonoBehaviour
         healthStat.Initialize();
 
         StartCoroutine(InitializeHealthBarUI());
+
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+
+        if (audioSources.Length >= 3)
+        {
+            attackAudioSource = audioSources[0];
+            hurtAudioSource = audioSources[1];
+            deathAudioSource = audioSources[2];
+        }
+        else
+        {
+            Debug.LogError("Not enough AudioSources attached! Make sure there are at least 3.");
+        }
+
+
     }
 
     IEnumerator InitializeHealthBarUI()
@@ -115,6 +134,12 @@ public class EnemyScript : MonoBehaviour
             this.GetComponent<Animator>().SetTrigger("attack");
             //this.GetComponent<Animator>().Play("broccoli_attack");
             //this.GetComponent<EnemyScript>().canMove = true;
+
+            if (attackAudioSource != null)
+            {
+                attackAudioSource.Play();
+            }
+
             if (Physics.CheckSphere(player_obj.transform.position, 0.75f, playerLayer)) {
                 player_obj.GetComponent<Player_Stats>().TakeDamage(3);
             }
@@ -138,6 +163,11 @@ public class EnemyScript : MonoBehaviour
 
         healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal);
 
+        if (hurtAudioSource != null)
+        {
+            hurtAudioSource.Play();
+        }
+
         if (healthStat.CurrentVal <= 0) {
             Invoke(nameof(DestroyEnemy), 0.5f);
         }
@@ -148,7 +178,14 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void DestroyEnemy() {
-        Destroy(gameObject);
+
+        if (deathAudioSource != null)
+        {
+            deathAudioSource.Play();
+        }
+
+        Destroy(gameObject, deathAudioSource != null ? deathAudioSource.clip.length : 0f);
+        //Destroy(gameObject);
     }
 
     // Update is called once per frame

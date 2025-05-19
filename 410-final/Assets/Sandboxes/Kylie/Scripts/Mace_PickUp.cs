@@ -26,9 +26,9 @@ public class Mace_PickUp : MonoBehaviour
         mace = this.gameObject;
         //collide = false;
         //mace.GetComponent<Animator>().Play(
-
+        
         audioSource = GetComponent<AudioSource>();
-       if (audioSource == null)
+        if (audioSource == null)
         {
             Debug.LogError("No AudioSource found on Mace PickUp GameObject!");
         }
@@ -56,8 +56,6 @@ public class Mace_PickUp : MonoBehaviour
         if (player_script.collide == true) {
             if (mace.gameObject.GetComponent<Animator>().GetBool("mace_swing")) {
                 if (other.gameObject.layer == 9) {
-
-                    
     
                     if (player_script.attacked == false) {
                         player_script.attacked = true;

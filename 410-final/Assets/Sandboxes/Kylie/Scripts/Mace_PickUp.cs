@@ -16,6 +16,8 @@ public class Mace_PickUp : MonoBehaviour
 
     public float sightRange, attackRange;
     public bool enemyInSightRange, enemyInAttackRange;
+
+    private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +26,12 @@ public class Mace_PickUp : MonoBehaviour
         mace = this.gameObject;
         //collide = false;
         //mace.GetComponent<Animator>().Play(
+
+        audioSource = GetComponent<AudioSource>();
+       if (audioSource == null)
+        {
+            Debug.LogError("No AudioSource found on Mace PickUp GameObject!");
+        }
     }
 
     // Update is called once per frame
@@ -48,6 +56,8 @@ public class Mace_PickUp : MonoBehaviour
         if (player_script.collide == true) {
             if (mace.gameObject.GetComponent<Animator>().GetBool("mace_swing")) {
                 if (other.gameObject.layer == 9) {
+
+                    
     
                     if (player_script.attacked == false) {
                         player_script.attacked = true;
@@ -70,6 +80,12 @@ public class Mace_PickUp : MonoBehaviour
                     Debug.Log("weapon change");
                     player_script.weaponIconUI.UpdateWeaponIcon(mace);
                 }
+
+                if (audioSource != null)
+                {
+                    audioSource.Play(); 
+                }
+                     
 
 
                 mace.gameObject.transform.position = mace.gameObject.transform.position - new Vector3(0, mace.transform.position.y, 0);

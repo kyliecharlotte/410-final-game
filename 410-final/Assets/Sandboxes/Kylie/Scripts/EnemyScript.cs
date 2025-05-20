@@ -105,9 +105,10 @@ public class EnemyScript : MonoBehaviour
     }
 
 
-    private void Patroling() {
+    private void Patroling()
+    {
 
-        if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 4) {
+        /*if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 4) {
             currentWP++;
         }
 
@@ -116,7 +117,18 @@ public class EnemyScript : MonoBehaviour
         }
 
         this.transform.LookAt(waypoints[currentWP].transform);
-        this.transform.Translate(0,0,speed * Time.deltaTime);
+        this.transform.Translate(0,0,speed * Time.deltaTime);*/
+        donut.SetDestination(waypoints[currentWP].transform.position);
+        if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 4)
+        {
+            currentWP++;
+        }
+        if (currentWP >= waypoints.Length) {
+            currentWP = 0;
+        }
+
+
+
 
     }
 
@@ -139,8 +151,11 @@ public class EnemyScript : MonoBehaviour
             {
                 attackAudioSource.Play();
             }
+            
+            float dot = Vector3.Dot(transform.forward, (player_obj.transform.position - transform.position).normalized);
 
-            if (Physics.CheckSphere(player_obj.transform.position, 0.75f, playerLayer)) {
+            if ((dot >= .8f) && Physics.CheckSphere(player_obj.transform.position, 0.40f, playerLayer))
+            {
                 player_obj.GetComponent<Player_Stats>().TakeDamage(3);
             }
             //player_obj.GetComponent<Player_Stats>().TakeDamage(5);

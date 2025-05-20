@@ -28,43 +28,61 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
 
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        if (controller.gameObject.activeSelf == true)
+        {
 
-        inputDirection = new Vector3(x,0,z);
-        Vector3 worldInputDirection = playerBody.TransformDirection(inputDirection);
-        
-        controller.Move(worldInputDirection * Time.deltaTime * playerSpeed);
+            float x = Input.GetAxisRaw("Horizontal");
+            float z = Input.GetAxisRaw("Vertical");
 
-       /* if (Input.GetAxisRaw("Horizontal") > 0) {
-            RotatePlayer(1);
-        } else if (Input.GetAxisRaw("Horizontal") < 0) {
-            RotatePlayer(-1);
-        }*/
+            inputDirection = new Vector3(x, 0, z);
+            Vector3 worldInputDirection = playerBody.TransformDirection(inputDirection);
 
-        if (inputDirection.magnitude > 0.01f) {
-            // Play the walking sound if not already playing
-            if (!walkAudio.isPlaying) {
-                walkAudio.Play();
-            }
-        } else {
-            // Stop the walking sound if the player is not moving
-            if (walkAudio.isPlaying) {
-                walkAudio.Stop();
-            }
-        }
+            controller.Move(worldInputDirection * Time.deltaTime * playerSpeed);
 
-        if (inputDirection.magnitude > 0.01f) {
-            inputDirection.Normalize();
-            if (z >= 0) {
-                if (x > 0) {
-                //playerBody.rotation = Quaternion.Lerp(playerBody.rotation, Quaternion.LookRotation(inputDirection), 10f * Time.deltaTime);
-                    playerBody.Rotate(Vector3.up * 80f * Time.deltaTime);
-                } else if (x < 0) {
-                    playerBody.Rotate(-1 * Vector3.up * 80f * Time.deltaTime);
+            /* if (Input.GetAxisRaw("Horizontal") > 0) {
+                 RotatePlayer(1);
+             } else if (Input.GetAxisRaw("Horizontal") < 0) {
+                 RotatePlayer(-1);
+             }*/
+
+            if (inputDirection.magnitude > 0.01f)
+            {
+                // Play the walking sound if not already playing
+                if (!walkAudio.isPlaying)
+                {
+                    walkAudio.Play();
                 }
             }
-            //playerBody.rotation = Quaternion.Lerp(playerBody.rotation, Quaternion.LookRotation(inputDirection), 10f * Time.deltaTime);
+            else
+            {
+                // Stop the walking sound if the player is not moving
+                if (walkAudio.isPlaying)
+                {
+                    walkAudio.Stop();
+                }
+            }
+
+            if (inputDirection.magnitude > 0.01f)
+            {
+                inputDirection.Normalize();
+                if (z >= 0)
+                {
+                    if (x > 0)
+                    {
+                        //playerBody.rotation = Quaternion.Lerp(playerBody.rotation, Quaternion.LookRotation(inputDirection), 10f * Time.deltaTime);
+                        playerBody.Rotate(Vector3.up * 80f * Time.deltaTime);
+                    }
+                    else if (x < 0)
+                    {
+                        playerBody.Rotate(-1 * Vector3.up * 80f * Time.deltaTime);
+                    }
+                }
+                //playerBody.rotation = Quaternion.Lerp(playerBody.rotation, Quaternion.LookRotation(inputDirection), 10f * Time.deltaTime);
+            }
+        }
+        else
+        {
+            
         }
     }  
 }

@@ -61,7 +61,7 @@ public class Player_Stats : MonoBehaviour
         StartCoroutine(InitializeWeaponIconUI());
     }
 
-    IEnumerator InitializeHealthBarUI()
+    public IEnumerator InitializeHealthBarUI()
     {
         yield return new WaitForEndOfFrame(); // Wait for UI to be created
 
@@ -87,7 +87,7 @@ public class Player_Stats : MonoBehaviour
     }
 
 
-    IEnumerator InitializeWeaponIconUI()
+    public IEnumerator InitializeWeaponIconUI()
     {
         yield return new WaitForEndOfFrame(); // Wait for UI to be created
 
@@ -160,6 +160,9 @@ public class Player_Stats : MonoBehaviour
         health -= dmg;
         healthStat.CurrentVal = health;
 
+        Debug.Log("healthBarUI: " + healthBarUI);
+        Debug.Log("healthStat: " + healthStat);
+
         healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal);
 
         if (healthStat.CurrentVal <= 0)
@@ -223,7 +226,7 @@ public class Player_Stats : MonoBehaviour
     }
 
     public void ResetAttack () {
-        Invoke(nameof(VariableChange),1.2f);
+        Invoke(nameof(VariableChange),1.0f);
         return;
     }
 
@@ -233,7 +236,15 @@ public class Player_Stats : MonoBehaviour
 
 
     void EndGame() {
-        SceneManager.LoadScene("castle");
+        Debug.Log(SceneManager.GetActiveScene().name.ToString().Trim());
+        if (SceneManager.GetActiveScene().name.ToString().Trim() == "Tutorial")
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+        else
+        {
+            SceneManager.LoadScene("castle");
+        }
     }
 
 

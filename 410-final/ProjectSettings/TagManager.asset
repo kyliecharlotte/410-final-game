@@ -12,6 +12,7 @@ TagManager:
   - on-click
   - Crossbow_Weapon
   - Riddle
+  - Sword_Weapon
   layers:
   - Default
   - TransparentFX

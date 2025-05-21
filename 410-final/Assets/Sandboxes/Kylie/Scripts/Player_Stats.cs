@@ -24,6 +24,8 @@ public class Player_Stats : MonoBehaviour
     public bool collide;
     private bool enter = false;
 
+    public bool sword_attack;
+
     public GameObject player_dad;
 
     public LayerMask enemyLayer;
@@ -31,8 +33,6 @@ public class Player_Stats : MonoBehaviour
     public bool HasWeapon;
 
     public GameObject curr_weapon;
-
-    private bool aim_bow;
 
     public AudioSource audioSource;
 
@@ -53,6 +53,7 @@ public class Player_Stats : MonoBehaviour
 
         player = this.gameObject;
         attacked = false;
+        sword_attack = false;
         collide = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -112,35 +113,42 @@ public class Player_Stats : MonoBehaviour
             }
         }
 
-        // if (Input.GetKeyDown(KeyCode.T)) {
-        //     TakeDamage(1);
-        // }
     }
 
-    public void DropWeapon(GameObject curr) {
+    public void DropWeapon(GameObject curr)
+    {
         curr.transform.parent = null;
-        
+
         curr.GetComponent<Light>().enabled = true;
 
-        if (curr.tag == "Mace_Weapon") {
-                curr.GetComponent<Animator>().applyRootMotion = true;
-                //if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
-                StartCoroutine(drop_item_timer(curr));
-                //}
+        if (curr.tag == "Mace_Weapon")
+        {
+            curr.GetComponent<Animator>().applyRootMotion = true;
+            //if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
+            StartCoroutine(drop_item_timer(curr));
+            //}
         }
 
-        if (curr.tag == "Crossbow_Weapon") {
-                
-                //if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-                StartCoroutine(drop_item_timer(curr));
-                //}
+        if (curr.tag == "Crossbow_Weapon")
+        {
+
+            //if (!Physics.CheckSphere(curr.transform.position, 5f, 8)) {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            StartCoroutine(drop_item_timer(curr));
+            //}
+        }
+
+        if (curr.tag == "Sword_Weapon")
+        {
+            curr.GetComponent<Animator>().ResetTrigger("hold_sword");
+            curr.GetComponent<Animator>().applyRootMotion = true;
+            StartCoroutine(drop_item_timer(curr));
         }
         // weaponIconUI.UpdateWeaponIcon(curr_weapon);
 
-    
+
     }
 
     IEnumerator drop_item_timer(GameObject curr) {
@@ -176,41 +184,28 @@ public class Player_Stats : MonoBehaviour
         StartCoroutine(ResetMace(mace));
     }
 
+    public void Sword_Attack(GameObject sword) {
+        sword.GetComponent<Animator>().SetTrigger("sword_swing");
+        sword_attack = true;
+        sword.GetComponent<Animator>().applyRootMotion = false;
+        StartCoroutine(ResetSword(sword));
+    }
+
     IEnumerator ResetMace(GameObject mace) {
         yield return new WaitForSeconds(1f);
         mace.GetComponent<Animator>().ResetTrigger("mace_swing");
     }
-/*
-    public void MaceAttack (GameObject mace, GameObject enemy) {
-        
-        player.GetComponent<Fighting_Script>().canMove = false;
-        enemy.GetComponent<EnemyScript>().canMove = false;
-        audioSource = mace.GetComponent<AudioSource>();
-        mace.GetComponent<Animator>().SetTrigger("mace_swing");
 
-        //mace.GetComponent<Animator>().Play("mace");
-
-        if (!attacked) {
-            attacked = true;
-            audioSource.Play();
-            if (Physics.CheckSphere(enemy.transform.position, 0.75f, enemyLayer)) {
-                enemy.GetComponent<EnemyScript>().TakeDamage(1);
-                
-            }
-            //enemy.GetComponent<EnemyScript>().TakeDamage(1);
-            enemy.GetComponent<EnemyScript>().canMove = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
-
+    IEnumerator ResetSword(GameObject sword)
+    {
+        yield return new WaitForSeconds(0.75f);
+        sword_attack = false;
+        sword.GetComponent<Animator>().ResetTrigger("sword_swing");
     }
 
-*/
+    public void CrossbowAttack(GameObject crossbow)
+    {
 
-    // public int returnHealth() {
-    //     return health;
-    // }
-    public void CrossbowAttack(GameObject crossbow) {
-        
         float mouseY = Mathf.Clamp01(Input.mousePosition.y / Screen.height);
 
         float release = Mathf.Lerp(18f, -50f, mouseY);
@@ -233,7 +228,6 @@ public class Player_Stats : MonoBehaviour
     private void VariableChange() {
         attacked = false;
     }
-
 
     void EndGame() {
         Debug.Log(SceneManager.GetActiveScene().name.ToString().Trim());

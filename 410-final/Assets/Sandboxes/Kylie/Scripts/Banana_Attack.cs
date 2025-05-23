@@ -22,7 +22,7 @@ public class Banana_Attack : MonoBehaviour
 
         if (other.gameObject.layer == 8)
         {
-            player.gameObject.GetComponent<Player_Stats>().TakeDamage(4);
+            player.gameObject.GetComponent<Player_Stats>().TakeDamage(3);
         }
     }
 }

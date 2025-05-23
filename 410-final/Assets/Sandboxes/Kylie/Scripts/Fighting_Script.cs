@@ -1,5 +1,6 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Fighting_Script : MonoBehaviour
@@ -13,12 +14,14 @@ public class Fighting_Script : MonoBehaviour
     
     public Vector3 inputDirection;
     public GameObject player;
-    public float playerSpeed = 10.0f;
+    private float moveSpeed = 10.0f;
+    private float sprintSpeed = 18.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         controller = player.GetComponent<CharacterController>();
         playerBody = player.transform;
+        canMove = true;
         //Cursor.SetCursor(null, new Vector2(0,0), CursorMode.Auto);
     }
 
@@ -26,18 +29,28 @@ public class Fighting_Script : MonoBehaviour
     void Update()
     {
 
+        float playerSpeed;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerSpeed = sprintSpeed;
+        }
+        else
+        {
+            playerSpeed = moveSpeed;
+        }
+
         if (canMove == true)
         {
-
             controller.gameObject.SetActive(true);
 
-            float x = Input.GetAxisRaw("Horizontal");
-            float z = Input.GetAxisRaw("Vertical");
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
             //float x = Input.GetAxis("Mouse X");
             //float z = Input.GetAxis("Mouse Y");
 
-            playerBody.Rotate(0, Input.GetAxis("Mouse X") * 9.0f, 0);
+            playerBody.Rotate(0, Input.GetAxis("Mouse X") * (playerSpeed / 2), 0);
             inputDirection = new Vector3(x, 0, z).normalized;
             Vector3 worldInputDirection = playerBody.TransformDirection(inputDirection);
 

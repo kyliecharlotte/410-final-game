@@ -16,7 +16,7 @@ public class EnemyScript : MonoBehaviour
     public bool canMove;
 
     [SerializeField] private float timer = 0.7f;
-    private int velocity = 300;
+    private int velocity = 350;
     private float bulletTime;
     public GameObject enemyBullet;
     public Transform spawnPoint;
@@ -45,6 +45,8 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private Stat healthStat;
     [SerializeField] private HealthBarUI healthBarUI;
     public string canvasName;
+
+    public int attackDamage;
 
     public AudioSource attackAudioSource;
     public AudioSource hurtAudioSource;
@@ -148,6 +150,7 @@ public class EnemyScript : MonoBehaviour
 
     private void AttackPlayer() {
         // stand still
+        
         donut.SetDestination(transform.position);
         bool looking = Physics.CheckSphere(transform.position, 3f, playerLayer);
 
@@ -162,9 +165,9 @@ public class EnemyScript : MonoBehaviour
             
             float dot = Vector3.Dot(transform.forward, (player_obj.transform.position - transform.position).normalized);
 
-            if ((dot >= .8f) && Physics.CheckSphere(player_obj.transform.position, 0.40f, playerLayer))
+            if ((dot <= .8f) && Physics.CheckSphere(player_obj.transform.position, 1, playerLayer))
             {
-                player_obj.GetComponent<Player_Stats>().TakeDamage(3);
+                player_obj.GetComponent<Player_Stats>().TakeDamage(attackDamage);
             }
             //player_obj.GetComponent<Player_Stats>().TakeDamage(5);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

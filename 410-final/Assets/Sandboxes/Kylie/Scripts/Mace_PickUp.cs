@@ -54,7 +54,7 @@ public class Mace_PickUp : MonoBehaviour
     {
 
         if (player_script.collide == true) {
-            if (mace.gameObject.GetComponent<Animator>().GetBool("mace_swing")) {
+            if (player_script.mace_attack == true) {
                 if (other.gameObject.layer == 9) {
     
                     if (player_script.attacked == false) {
@@ -102,10 +102,9 @@ public class Mace_PickUp : MonoBehaviour
     {
 
         if (player_script.collide == true) {
-            if (mace.gameObject.GetComponent<Animator>().GetBool("mace_swing")) {
+            if (player_script.mace_attack == true) {
                 if (other.gameObject.layer == 9) {
                     if (player.GetComponent<Player_Stats>().attacked == false) {
-                        Debug.Log("HIT");
                         player.GetComponent<Player_Stats>().attacked = true;
     
                         other.gameObject.GetComponent<EnemyScript>().TakeDamage(1);

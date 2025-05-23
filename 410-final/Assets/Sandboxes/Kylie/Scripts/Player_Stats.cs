@@ -25,6 +25,7 @@ public class Player_Stats : MonoBehaviour
     private bool enter = false;
 
     public bool sword_attack;
+    public bool mace_attack;
 
     public GameObject player_dad;
 
@@ -54,6 +55,7 @@ public class Player_Stats : MonoBehaviour
         player = this.gameObject;
         attacked = false;
         sword_attack = false;
+        mace_attack = false;
         collide = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -181,6 +183,7 @@ public class Player_Stats : MonoBehaviour
 
     public void MaceAttack_1(GameObject mace) {
         mace.GetComponent<Animator>().SetTrigger("mace_swing");
+        mace_attack = true;
         StartCoroutine(ResetMace(mace));
     }
 
@@ -193,6 +196,7 @@ public class Player_Stats : MonoBehaviour
 
     IEnumerator ResetMace(GameObject mace) {
         yield return new WaitForSeconds(1f);
+        mace_attack = false;
         mace.GetComponent<Animator>().ResetTrigger("mace_swing");
     }
 
@@ -211,7 +215,7 @@ public class Player_Stats : MonoBehaviour
         float release = Mathf.Lerp(18f, -50f, mouseY);
         Vector3 dir = transform.forward;
         Vector3 axis = transform.right;
-        float arrow_speed = 16.5f;
+        float arrow_speed = 20f;
 
         Vector3 angle = Quaternion.AngleAxis(release, axis) * dir;
         GameObject arrow = Instantiate(arrowPrefab, crossbow.transform.position, crossbow.transform.rotation);

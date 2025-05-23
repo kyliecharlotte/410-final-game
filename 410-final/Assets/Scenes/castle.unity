@@ -18381,6 +18381,9 @@ MonoBehaviour:
   health: 5
   speed: 9
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 459904932}
   player: {fileID: 1188838673}
   player_obj: {fileID: 0}
@@ -18409,6 +18412,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 1915024155}
   canvasName: BroccRexCanvas
+  attackDamage: 1
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}
@@ -32599,6 +32603,9 @@ MonoBehaviour:
   health: 5
   speed: 6
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 777279045}
   player: {fileID: 1188838673}
   player_obj: {fileID: 0}
@@ -32616,7 +32623,7 @@ MonoBehaviour:
   - {fileID: 1224011049}
   - {fileID: 1142795835}
   - {fileID: 1047199055}
-  sightRange: 8
+  sightRange: 11
   attackRange: 2
   playerInSightRange: 0
   playerInAttackRange: 0
@@ -32627,6 +32634,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 2141365408}
   canvasName: BroccRexCanvas(1)
+  attackDamage: 1
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}
@@ -35550,6 +35558,8 @@ MonoBehaviour:
   bow_curser: {fileID: 2800000, guid: ab45e463e52fe8c49869828ced138ece, type: 3}
   attacked: 0
   collide: 0
+  sword_attack: 0
+  mace_attack: 0
   player_dad: {fileID: 1188838670}
   enemyLayer:
     serializedVersion: 2
@@ -36680,7 +36690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3970243614316841892, guid: 6779dcd80f07afe4ab9da6ac8fffc4f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.14
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: -3970243614316841892, guid: 6779dcd80f07afe4ab9da6ac8fffc4f7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36983,6 +36993,9 @@ MonoBehaviour:
   health: 5
   speed: 7
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 1666117137}
   player: {fileID: 1188838673}
   player_obj: {fileID: 1188838670}
@@ -37013,6 +37026,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 30942312}
   canvasName: GrapeMinionCanvas-2
+  attackDamage: 1
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}
@@ -47708,7 +47722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3970243614316841892, guid: 6779dcd80f07afe4ab9da6ac8fffc4f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.449
+      value: 4.36
       objectReference: {fileID: 0}
     - target: {fileID: -3970243614316841892, guid: 6779dcd80f07afe4ab9da6ac8fffc4f7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -48011,6 +48025,9 @@ MonoBehaviour:
   health: 5
   speed: 7
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 1666117137}
   player: {fileID: 1188838673}
   player_obj: {fileID: 1188838670}
@@ -48041,6 +48058,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 2059126546}
   canvasName: GrapeMinionCanvas-1
+  attackDamage: 1
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}
@@ -50016,6 +50034,8 @@ MonoBehaviour:
   bow_curser: {fileID: 0}
   attacked: 0
   collide: 0
+  sword_attack: 0
+  mace_attack: 0
   player_dad: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -55088,6 +55108,8 @@ MonoBehaviour:
   bow_curser: {fileID: 2800000, guid: ab45e463e52fe8c49869828ced138ece, type: 3}
   attacked: 0
   collide: 0
+  sword_attack: 0
+  mace_attack: 0
   player_dad: {fileID: 1188838670}
   enemyLayer:
     serializedVersion: 2
@@ -71157,6 +71179,9 @@ MonoBehaviour:
   health: 5
   speed: 7
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 1666117137}
   player: {fileID: 1188838673}
   player_obj: {fileID: 1188838670}
@@ -71187,6 +71212,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 691637322}
   canvasName: GrapeMinionCanvas
+  attackDamage: 1
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}

@@ -6,15 +6,22 @@ using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using UnityEditor.EditorTools;
 
 public class EnemyScript : MonoBehaviour
 {
 
     public int health = 5;
     public float speed = 5.2f;
-
     public bool canMove;
-    
+
+    [SerializeField] private float timer = 0.7f;
+    private int velocity = 300;
+    private float bulletTime;
+    public GameObject enemyBullet;
+    public Transform spawnPoint;
+
+
 
     public NavMeshAgent donut;
     public Transform player;
@@ -108,16 +115,6 @@ public class EnemyScript : MonoBehaviour
     private void Patroling()
     {
 
-        /*if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 4) {
-            currentWP++;
-        }
-
-        if (currentWP >= waypoints.Length) {
-            currentWP = 0;
-        }
-
-        this.transform.LookAt(waypoints[currentWP].transform);
-        this.transform.Translate(0,0,speed * Time.deltaTime);*/
         donut.SetDestination(waypoints[currentWP].transform.position);
         if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 4)
         {
@@ -128,12 +125,25 @@ public class EnemyScript : MonoBehaviour
         }
 
 
-
-
     }
 
-    private void ChasePlayer() {
+    private void ChasePlayer()
+    {
         donut.SetDestination(player_obj.transform.position);
+
+        if (this.CompareTag("BananaBat"))
+        {
+            bulletTime -= Time.deltaTime;
+
+            if (bulletTime > 0) return;
+
+            bulletTime = timer;
+
+            GameObject bulletObj = Instantiate(enemyBullet, spawnPoint.transform.position, spawnPoint.transform.rotation) as GameObject;
+            Rigidbody bulletRig = bulletObj.GetComponent<Rigidbody>();
+            bulletRig.AddForce(bulletRig.transform.forward * speed * velocity);
+            Destroy(bulletObj, 4f);
+        }
     }
 
     private void AttackPlayer() {
@@ -144,8 +154,6 @@ public class EnemyScript : MonoBehaviour
         if (!Attacked) {
             Attacked = true;
             this.GetComponent<Animator>().SetTrigger("attack");
-            //this.GetComponent<Animator>().Play("broccoli_attack");
-            //this.GetComponent<EnemyScript>().canMove = true;
 
             if (attackAudioSource != null)
             {
@@ -199,8 +207,8 @@ public class EnemyScript : MonoBehaviour
             deathAudioSource.Play();
         }
 
-        Destroy(gameObject, deathAudioSource != null ? deathAudioSource.clip.length : 0f);
-        //Destroy(gameObject);
+        //Destroy(gameObject, deathAudioSource != null ? deathAudioSource.clip.length : 0f);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

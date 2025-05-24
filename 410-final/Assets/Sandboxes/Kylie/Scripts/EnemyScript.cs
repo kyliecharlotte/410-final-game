@@ -52,6 +52,11 @@ public class EnemyScript : MonoBehaviour
     public AudioSource hurtAudioSource;
     public AudioSource deathAudioSource;
 
+    public AudioSource lowHealthAudioSource;
+    private bool lowHealthSoundPlayed = false;
+
+    public AudioSource chaseAudioSource;    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -79,6 +84,8 @@ public class EnemyScript : MonoBehaviour
             attackAudioSource = audioSources[0];
             hurtAudioSource = audioSources[1];
             deathAudioSource = audioSources[2];
+            lowHealthAudioSource = audioSources[3];
+            chaseAudioSource = audioSources[4];
         }
         else
         {
@@ -132,6 +139,11 @@ public class EnemyScript : MonoBehaviour
     private void ChasePlayer()
     {
         donut.SetDestination(player_obj.transform.position);
+
+        if (chaseAudioSource != null)
+        {
+            chaseAudioSource.Play();
+        }
 
         if (this.CompareTag("BananaBat"))
         {
@@ -194,7 +206,16 @@ public class EnemyScript : MonoBehaviour
             hurtAudioSource.Play();
         }
 
-        if (healthStat.CurrentVal <= 0) {
+        if (healthStat.CurrentVal <= 2 && !lowHealthSoundPlayed)
+        {
+            if (lowHealthAudioSource != null)
+            {
+                lowHealthAudioSource.Play();
+            }
+            lowHealthSoundPlayed = true;
+        }
+
+        if (healthStat.CurrentVal <= 0 ) {
             Invoke(nameof(DestroyEnemy), 0.5f);
         }
     }

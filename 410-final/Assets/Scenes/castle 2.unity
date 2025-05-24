@@ -18892,6 +18892,9 @@ MonoBehaviour:
   health: 5
   speed: 9
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 459904932}
   player: {fileID: 1188838673}
   player_obj: {fileID: 0}
@@ -18920,6 +18923,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 1915024155}
   canvasName: BroccRexCanvas
+  attackDamage: 0
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}
@@ -19149,8 +19153,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 64baa1f44691afc42a584e482cd9a27d, type: 3}
-  m_Resource: {fileID: 8300000, guid: 64baa1f44691afc42a584e482cd9a27d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 30c1ac023c76d0743a309a2a60de2c69, type: 3}
+  m_Resource: {fileID: 8300000, guid: 30c1ac023c76d0743a309a2a60de2c69, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -32255,6 +32259,9 @@ MonoBehaviour:
   health: 5
   speed: 6
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 777279045}
   player: {fileID: 1188838673}
   player_obj: {fileID: 0}
@@ -32283,6 +32290,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 2141365408}
   canvasName: BroccRexCanvas(1)
+  attackDamage: 0
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}
@@ -32512,8 +32520,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 64baa1f44691afc42a584e482cd9a27d, type: 3}
-  m_Resource: {fileID: 8300000, guid: 64baa1f44691afc42a584e482cd9a27d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 30c1ac023c76d0743a309a2a60de2c69, type: 3}
+  m_Resource: {fileID: 8300000, guid: 30c1ac023c76d0743a309a2a60de2c69, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -34937,6 +34945,8 @@ MonoBehaviour:
   bow_curser: {fileID: 2800000, guid: ab45e463e52fe8c49869828ced138ece, type: 3}
   attacked: 0
   collide: 0
+  sword_attack: 0
+  mace_attack: 0
   player_dad: {fileID: 1188838670}
   enemyLayer:
     serializedVersion: 2
@@ -34963,7 +34973,6 @@ MonoBehaviour:
   playerBody: {fileID: 0}
   inputDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 850906788}
-  playerSpeed: 10
 --- !u!143 &850906792
 CharacterController:
   m_ObjectHideFlags: 0
@@ -36602,6 +36611,9 @@ MonoBehaviour:
   health: 5
   speed: 7
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 1666117137}
   player: {fileID: 1188838673}
   player_obj: {fileID: 1188838670}
@@ -36632,6 +36644,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 30942312}
   canvasName: GrapeMinionCanvas-2
+  attackDamage: 0
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}
@@ -47949,6 +47962,9 @@ MonoBehaviour:
   health: 5
   speed: 7
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 1666117137}
   player: {fileID: 1188838673}
   player_obj: {fileID: 1188838670}
@@ -47979,6 +47995,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 2059126546}
   canvasName: GrapeMinionCanvas-1
+  attackDamage: 0
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}
@@ -49898,6 +49915,8 @@ MonoBehaviour:
   bow_curser: {fileID: 0}
   attacked: 0
   collide: 0
+  sword_attack: 0
+  mace_attack: 0
   player_dad: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -51132,13 +51151,13 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 4bdd5e561761d0747bb08bc4eee7b27f, type: 3}
   m_Resource: {fileID: 8300000, guid: 4bdd5e561761d0747bb08bc4eee7b27f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 232
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -55558,6 +55577,8 @@ MonoBehaviour:
   bow_curser: {fileID: 2800000, guid: ab45e463e52fe8c49869828ced138ece, type: 3}
   attacked: 0
   collide: 0
+  sword_attack: 0
+  mace_attack: 0
   player_dad: {fileID: 1188838670}
   enemyLayer:
     serializedVersion: 2
@@ -55584,7 +55605,6 @@ MonoBehaviour:
   playerBody: {fileID: 0}
   inputDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 1304037735}
-  playerSpeed: 10
 --- !u!82 &1304037741
 AudioSource:
   m_ObjectHideFlags: 0
@@ -70645,6 +70665,9 @@ MonoBehaviour:
   health: 5
   speed: 7
   canMove: 0
+  timer: 0.7
+  enemyBullet: {fileID: 0}
+  spawnPoint: {fileID: 0}
   donut: {fileID: 1666117137}
   player: {fileID: 1188838673}
   player_obj: {fileID: 1188838670}
@@ -70675,6 +70698,7 @@ MonoBehaviour:
     currentVal: 0
   healthBarUI: {fileID: 691637322}
   canvasName: GrapeMinionCanvas
+  attackDamage: 0
   attackAudioSource: {fileID: 0}
   hurtAudioSource: {fileID: 0}
   deathAudioSource: {fileID: 0}

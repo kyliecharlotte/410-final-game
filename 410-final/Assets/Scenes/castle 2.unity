@@ -11234,6 +11234,7 @@ MonoBehaviour:
   weaponIconImage: {fileID: 716909580}
   maceIcon: {fileID: 21300000, guid: e7b45ae2879cc6a4abb1f81b7cd8636c, type: 3}
   crossbowIcon: {fileID: 21300000, guid: ceab0b24b5ab841469d475eb5cb3e032, type: 3}
+  swordIcon: {fileID: 21300000, guid: 212e78c1c3aa7d149a721fd432134a25, type: 3}
   defaultIcon: {fileID: 21300000, guid: f67b74377ecc32a45b0b6f930f15a07b, type: 3}
 --- !u!1 &234851482
 GameObject:

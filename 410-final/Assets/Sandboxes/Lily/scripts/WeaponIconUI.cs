@@ -6,6 +6,7 @@ public class WeaponIconUI : MonoBehaviour
     [SerializeField] private Image weaponIconImage;
     [SerializeField] private Sprite maceIcon;
     [SerializeField] private Sprite crossbowIcon;
+    [SerializeField] private Sprite swordIcon;
     [SerializeField] private Sprite defaultIcon; // New line
 
 
@@ -33,6 +34,11 @@ public class WeaponIconUI : MonoBehaviour
         else if (weapon.CompareTag("Crossbow_Weapon"))
         {
             weaponIconImage.sprite = crossbowIcon;
+            weaponIconImage.enabled = true;
+        }
+        else if (weapon.CompareTag("Sword_Weapon"))
+        {
+            weaponIconImage.sprite = swordIcon;
             weaponIconImage.enabled = true;
         }
         else

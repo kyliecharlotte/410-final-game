@@ -32,11 +32,14 @@ public class EndGame : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Triggered by: " + other.gameObject.name);
         if (other.CompareTag("Player")) 
         {
+            Debug.Log("Player entered the trigger!");
             StartCoroutine(ShowWinTextAndLoadScene());
         }
     }
+
 
     IEnumerator ShowWinTextAndLoadScene()
     {

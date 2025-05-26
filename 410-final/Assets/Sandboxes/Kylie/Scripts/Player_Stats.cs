@@ -40,6 +40,7 @@ public class Player_Stats : MonoBehaviour
     //public Animator animator;
     private float timeBetweenAttacks;
     public GameObject player;
+    public GameObject deadMessage;
 
     void Start()
     {
@@ -62,6 +63,8 @@ public class Player_Stats : MonoBehaviour
         // Ensuring HealthBarUI is correctly initialized
         StartCoroutine(InitializeHealthBarUI());
         StartCoroutine(InitializeWeaponIconUI());
+
+        deadMessage = GameObject.Find("Canvas").transform.Find("DiedMessage").gameObject;
     }
 
     public IEnumerator InitializeHealthBarUI()
@@ -177,11 +180,21 @@ public class Player_Stats : MonoBehaviour
 
         if (healthStat.CurrentVal <= 0)
         {
-            Invoke(nameof(EndGame), 1.0f);
+            // Invoke(nameof(EndGame), 1.0f);
+            StartCoroutine(ShowDeadMessageAndEndGame());
         }
     }
+    
+    IEnumerator ShowDeadMessageAndEndGame()
+    {
+        deadMessage.SetActive(true); // Show the death message
+        yield return new WaitForSeconds(1.0f); // Wait for 1 second
+        deadMessage.SetActive(false); // Hide the message before transitioning
+        EndGame(); // Call the EndGame function
+    }
 
-    public void MaceAttack_1(GameObject mace) {
+    public void MaceAttack_1(GameObject mace)
+    {
         mace.GetComponent<Animator>().SetTrigger("mace_swing");
         mace_attack = true;
         StartCoroutine(ResetMace(mace));

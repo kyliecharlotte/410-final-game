@@ -177,8 +177,9 @@ public class EnemyScript : MonoBehaviour
             
             float dot = Vector3.Dot(transform.forward, (player_obj.transform.position - transform.position).normalized);
 
-            if ((dot <= .8f) && Physics.CheckSphere(player_obj.transform.position, 1, playerLayer))
+            if ((dot <= 0.9f) && Physics.CheckSphere(player_obj.transform.position, 2, playerLayer))
             {
+                Debug.Log("hit");
                 player_obj.GetComponent<Player_Stats>().TakeDamage(attackDamage);
             }
             //player_obj.GetComponent<Player_Stats>().TakeDamage(5);

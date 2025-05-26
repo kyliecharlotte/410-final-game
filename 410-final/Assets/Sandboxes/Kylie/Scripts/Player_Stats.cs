@@ -234,10 +234,16 @@ public class Player_Stats : MonoBehaviour
     }
 
     void EndGame() {
-        Debug.Log(SceneManager.GetActiveScene().name.ToString().Trim());
-        if (SceneManager.GetActiveScene().name.ToString().Trim() == "Tutorial")
+        string scene = SceneManager.GetActiveScene().name.ToString().Trim();
+        if (scene == "Tutorial")
         {
             SceneManager.LoadScene("Tutorial");
+        }
+        else if (scene == "castle 2") {
+            SceneManager.LoadScene("castle 2");
+        }
+        else if (scene == "castle 3") {
+            SceneManager.LoadScene("castle 3");
         }
         else
         {

@@ -7,7 +7,7 @@ public class RiddleLoader : MonoBehaviour
 {
     // private Dictionary<int, (string riddle, string answer)> riddles = new Dictionary<int, (string, string)>();
     private Dictionary<int, List<(string riddle, string answer)>> riddles = new Dictionary<int, List<(string, string)>>();
-
+    public int level;
 
     void Start()
     {
@@ -64,7 +64,7 @@ public class RiddleLoader : MonoBehaviour
 
 
 
-    public (string, string) GetRiddle(int level)
+    public (string, string) GetRiddle()
     {
         if (riddles.ContainsKey(level) && riddles[level].Count > 0)
         {

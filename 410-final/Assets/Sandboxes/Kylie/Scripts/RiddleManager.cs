@@ -51,7 +51,7 @@ public class RiddleManager : MonoBehaviour
             return;
         }
 
-        (string riddle, string answer) = riddleLoader.GetRiddle(1);
+        (string riddle, string answer) = riddleLoader.GetRiddle();
         
         if (string.IsNullOrEmpty(riddle))
         {
@@ -105,7 +105,9 @@ public class RiddleManager : MonoBehaviour
             return;
         }
 
-        (currentRiddle, correctAnswer) = riddleLoader.GetRiddle(1);
+        // get the level
+
+        (currentRiddle, correctAnswer) = riddleLoader.GetRiddle();
 
         if (string.IsNullOrEmpty(currentRiddle))
         {

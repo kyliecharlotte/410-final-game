@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/castle 2.unity
     guid: abf3dde353aac5b4caf0568764ddaa40
+  - enabled: 1
+    path: Assets/Scenes/castle 3.unity
+    guid: d3c7f59cb0a9d6149847af75534b8b15
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

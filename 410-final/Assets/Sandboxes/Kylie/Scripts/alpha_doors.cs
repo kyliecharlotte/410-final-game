@@ -31,6 +31,7 @@ public class alpha_doors : MonoBehaviour
     {
         Debug.Log("Door unlocked via RiddleManager!");
         door.gameObject.GetComponent<BoxCollider>().enabled = false;
+        this.GetComponent<BoxCollider>().enabled = false;
     }
 
 }

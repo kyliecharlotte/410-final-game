@@ -60,7 +60,7 @@ public class Mace_PickUp : MonoBehaviour
                     if (player_script.attacked == false) {
                         player_script.attacked = true;
 
-                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(1);
+                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(4);
                         player.GetComponent<Player_Stats>().ResetAttack();
                     }
                 }
@@ -107,7 +107,7 @@ public class Mace_PickUp : MonoBehaviour
                     if (player.GetComponent<Player_Stats>().attacked == false) {
                         player.GetComponent<Player_Stats>().attacked = true;
     
-                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(1);
+                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(4);
                         player.GetComponent<Player_Stats>().ResetAttack();
                     }
                 }

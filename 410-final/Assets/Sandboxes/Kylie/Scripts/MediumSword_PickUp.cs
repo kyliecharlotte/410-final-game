@@ -67,7 +67,7 @@ public class MediumSword_PickUp : MonoBehaviour
                         player_script.attacked = true;
                         Debug.Log("attack");
 
-                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(5);
+                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(3);
                         player.GetComponent<Player_Stats>().ResetAttack();
                     }
                 }
@@ -122,7 +122,7 @@ public class MediumSword_PickUp : MonoBehaviour
                         Debug.Log("HIT");
                         player_script.attacked = true;
 
-                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(1);
+                        other.gameObject.GetComponent<EnemyScript>().TakeDamage(3);
                         player.GetComponent<Player_Stats>().ResetAttack();
                     }
             }

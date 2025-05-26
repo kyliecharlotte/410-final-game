@@ -138,6 +138,7 @@ public class EnemyScript : MonoBehaviour
 
     private void ChasePlayer()
     {
+        Debug.Log("chase");
         donut.SetDestination(player_obj.transform.position);
 
         if (chaseAudioSource != null)

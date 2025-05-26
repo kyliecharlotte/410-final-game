@@ -18,6 +18,8 @@ public class Open_Level_Doors : MonoBehaviour
             if (!enemy) {
                 this.gameObject.SetActive(false);
                 wall.SetActive(false);
+                PlayerPrefs.SetString(SceneManager.GetActiveScene().name.ToString().Trim(), "Complete");
+                PlayerPrefs.Save();
                 SceneManager.LoadScene("CharacterSelection");
             }
         }
@@ -29,6 +31,8 @@ public class Open_Level_Doors : MonoBehaviour
             if (!enemy) {
                 this.gameObject.SetActive(false);
                 wall.SetActive(false);
+                PlayerPrefs.SetString(SceneManager.GetActiveScene().name.ToString().Trim(), "Complete");
+                PlayerPrefs.Save();
                 SceneManager.LoadScene("CharacterSelection");
             }
         }

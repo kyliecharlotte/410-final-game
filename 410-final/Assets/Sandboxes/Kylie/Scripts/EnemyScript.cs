@@ -6,7 +6,6 @@ using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
-using UnityEditor.EditorTools;
 
 public class EnemyScript : MonoBehaviour
 {

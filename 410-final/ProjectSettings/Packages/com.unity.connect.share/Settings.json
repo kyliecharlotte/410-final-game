@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/Lily Logan/UnityProjects/410-final-game/410-final/WebGL Builds/Beta;/Users/kyliegriffiths/Documents/410-final-game/410-final/WebGL Builds;/Users/kyliegriffiths/Documents/410-final-game/410-final/WebGL Build Test;;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/Lily Logan/UnityProjects/410-final-game/410-final/WebGL Builds/Beta_build;C:/Users/Lily Logan/UnityProjects/410-final-game/410-final/WebGL Builds/Beta;/Users/kyliegriffiths/Documents/410-final-game/410-final/WebGL Builds;/Users/kyliegriffiths/Documents/410-final-game/410-final/WebGL Build Test;;;;;;\"}"
             }
         ]
     }

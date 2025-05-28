@@ -92,7 +92,8 @@ using System.Collections; // Add this line
 public class RiddleLoader : MonoBehaviour
 {
     private Dictionary<int, List<(string riddle, string answer)>> riddles = new Dictionary<int, List<(string, string)>>();
-    public int level;
+    public int level = 1;
+    private bool riddlesLoaded = false;
 
     void Start()
     {
@@ -133,6 +134,7 @@ public class RiddleLoader : MonoBehaviour
 
     private void ParseCSV(string csvData)
     {
+        riddlesLoaded = false;
         string[] lines = csvData.Split('\n');
 
         foreach (string line in lines)
@@ -145,8 +147,8 @@ public class RiddleLoader : MonoBehaviour
                 continue;
             }
 
-            string riddle = columns[0].Trim().Trim('"'); 
-            string answer = columns[1].Trim().Trim('"'); 
+            string riddle = columns[0].Trim().Trim('"');
+            string answer = columns[1].Trim().Trim('"');
             int level;
 
             if (!int.TryParse(columns[2].Trim(), out level))
@@ -160,14 +162,19 @@ public class RiddleLoader : MonoBehaviour
 
             riddles[level].Add((riddle, answer));
         }
+        riddlesLoaded = true;
     }
 
     public (string, string) GetRiddle()
     {
+        if (!riddlesLoaded)
+        return ("Riddles not yet loaded", "");
+
+
         if (riddles.ContainsKey(level) && riddles[level].Count > 0)
         {
             int randomIndex = UnityEngine.Random.Range(0, riddles[level].Count);
-            return riddles[level][randomIndex];  
+            return riddles[level][randomIndex];
         }
         return ("No riddle found", "");
     }

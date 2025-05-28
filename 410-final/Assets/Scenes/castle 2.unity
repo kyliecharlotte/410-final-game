@@ -10131,13 +10131,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0.14
+  m_Height: 0.3
   m_Radius: 1.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.08, z: -0.3}
+  m_Center: {x: 0, y: 0.08, z: -0.33}
 --- !u!136 &192477185
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10158,9 +10158,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.4
-  m_Height: 0.14
+  m_Height: 0.3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.08, z: -0.3}
+  m_Center: {x: 0, y: 0.08, z: -0.33}
 --- !u!1001 &198129190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72779,13 +72779,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 792029642970618792, guid: fbdb312499d4a4a88a246d57cd3a3eb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050911263077334034, guid: fbdb312499d4a4a88a246d57cd3a3eb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2107409826236812522, guid: fbdb312499d4a4a88a246d57cd3a3eb9, type: 3}
       propertyPath: m_Name
       value: BetaDonutDuchess
       objectReference: {fileID: 0}
     - target: {fileID: 2107409826236812522, guid: fbdb312499d4a4a88a246d57cd3a3eb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107409826236812522, guid: fbdb312499d4a4a88a246d57cd3a3eb9, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107409826236812522, guid: fbdb312499d4a4a88a246d57cd3a3eb9, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

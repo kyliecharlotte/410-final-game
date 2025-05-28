@@ -54076,13 +54076,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0.14
+  m_Height: 0.3
   m_Radius: 1.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.08, z: -0.3}
+  m_Center: {x: 0, y: 0.08, z: -0.33}
 --- !u!136 &1126506515
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -54103,9 +54103,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.4
-  m_Height: 0.14
+  m_Height: 0.3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.08, z: -0.3}
+  m_Center: {x: 0, y: 0.08, z: -0.33}
 --- !u!1 &1126596119 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 175106, guid: b84cdff1414a1094d995361dae7b91b1, type: 3}

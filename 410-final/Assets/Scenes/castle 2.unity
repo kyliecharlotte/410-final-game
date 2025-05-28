@@ -31667,7 +31667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb216701ec1a248cdb18b5e4e7a2f38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 1628577269}
 --- !u!54 &696971290
 Rigidbody:
   m_ObjectHideFlags: 0

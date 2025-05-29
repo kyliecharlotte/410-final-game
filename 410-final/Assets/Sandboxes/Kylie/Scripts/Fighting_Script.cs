@@ -50,7 +50,7 @@ public class Fighting_Script : MonoBehaviour
             //float x = Input.GetAxis("Mouse X");
             //float z = Input.GetAxis("Mouse Y");
 
-            playerBody.Rotate(0, Input.GetAxis("Mouse X") * (playerSpeed / 2), 0);
+            playerBody.Rotate(0, Input.GetAxis("Mouse X") * (playerSpeed / 2.6f), 0);
             inputDirection = new Vector3(x, 0, z).normalized;
             Vector3 worldInputDirection = playerBody.TransformDirection(inputDirection);
 

@@ -112,13 +112,17 @@ public class Player_Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            if (HasWeapon == true) {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (HasWeapon == true)
+            {
                 DropWeapon(curr_weapon);
             }
         }
 
     }
+
+
 
     public void DropWeapon(GameObject curr)
     {
@@ -156,7 +160,8 @@ public class Player_Stats : MonoBehaviour
 
     }
 
-    IEnumerator drop_item_timer(GameObject curr) {
+    IEnumerator drop_item_timer(GameObject curr)
+    {
 
         enter = true;
         yield return new WaitForSeconds(0.5f);
@@ -168,8 +173,9 @@ public class Player_Stats : MonoBehaviour
 
     }
 
-    public void TakeDamage (int dmg) {
-        
+    public void TakeDamage(int dmg)
+    {
+
         health -= dmg;
         healthStat.CurrentVal = health;
 
@@ -184,7 +190,7 @@ public class Player_Stats : MonoBehaviour
             StartCoroutine(ShowDeadMessageAndEndGame());
         }
     }
-    
+
     IEnumerator ShowDeadMessageAndEndGame()
     {
         deadMessage.SetActive(true); // Show the death message
@@ -200,14 +206,16 @@ public class Player_Stats : MonoBehaviour
         StartCoroutine(ResetMace(mace));
     }
 
-    public void Sword_Attack(GameObject sword) {
+    public void Sword_Attack(GameObject sword)
+    {
         sword.GetComponent<Animator>().SetTrigger("sword_swing");
         sword_attack = true;
         sword.GetComponent<Animator>().applyRootMotion = false;
         StartCoroutine(ResetSword(sword));
     }
 
-    IEnumerator ResetMace(GameObject mace) {
+    IEnumerator ResetMace(GameObject mace)
+    {
         yield return new WaitForSeconds(1f);
         mace_attack = false;
         mace.GetComponent<Animator>().ResetTrigger("mace_swing");
@@ -237,25 +245,30 @@ public class Player_Stats : MonoBehaviour
         arrow.GetComponent<Arrow_Shot>().shot = true;
     }
 
-    public void ResetAttack () {
-        Invoke(nameof(VariableChange),1.0f);
+    public void ResetAttack()
+    {
+        Invoke(nameof(VariableChange), 1.0f);
         return;
     }
 
-    private void VariableChange() {
+    private void VariableChange()
+    {
         attacked = false;
     }
 
-    void EndGame() {
+    void EndGame()
+    {
         string scene = SceneManager.GetActiveScene().name.ToString().Trim();
         if (scene == "Tutorial")
         {
             SceneManager.LoadScene("Tutorial");
         }
-        else if (scene == "castle 2") {
+        else if (scene == "castle 2")
+        {
             SceneManager.LoadScene("castle 2");
         }
-        else if (scene == "castle 3") {
+        else if (scene == "castle 3")
+        {
             SceneManager.LoadScene("castle 3");
         }
         else
@@ -263,6 +276,13 @@ public class Player_Stats : MonoBehaviour
             SceneManager.LoadScene("castle");
         }
     }
+    
+    public void Heal(int amount)
+    {
+        healthStat.CurrentVal = Mathf.Clamp(healthStat.CurrentVal + amount, 0, healthStat.MaxVal);
+        healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal); // Update UI
+    }
+
 
 
 }

@@ -11,6 +11,24 @@ public class HealthPickupSpawner : MonoBehaviour
     public float spawnCooldown = 10f; // seconds between spawn attempts
     private float spawnTimer = 0f;
 
+    void Awake()
+    {
+        // Automatically find all spawn points with the tag "SpawnPoint"
+        GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        spawnPoints = new List<Transform>();
+
+        foreach (GameObject obj in spawnPointObjects)
+        {
+            spawnPoints.Add(obj.transform);
+        }
+
+        if (spawnPoints.Count == 0)
+        {
+            Debug.LogWarning("No spawn points found! Did you forget to tag them?");
+        }
+    }
+
+
     void Update()
     {
         // Player_Stats playerStats = player.GetComponent<Player_Stats>();

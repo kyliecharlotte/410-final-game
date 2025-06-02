@@ -5353,7 +5353,7 @@ GameObject:
   - component: {fileID: 91518533}
   m_Layer: 0
   m_Name: generationpoint (4)
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5568,7 +5568,7 @@ GameObject:
   - component: {fileID: 101947346}
   m_Layer: 0
   m_Name: generationpoint (1)
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8809,7 +8809,7 @@ GameObject:
   - component: {fileID: 188307761}
   m_Layer: 0
   m_Name: generationpoint
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21160,7 +21160,7 @@ GameObject:
   - component: {fileID: 487682414}
   m_Layer: 0
   m_Name: generationpoint (7)
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36394,7 +36394,7 @@ GameObject:
   - component: {fileID: 722019106}
   m_Layer: 0
   m_Name: generationpoint (5)
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36456,7 +36456,7 @@ GameObject:
   - component: {fileID: 725561435}
   m_Layer: 0
   m_Name: generationpoint (6)
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37973,7 +37973,7 @@ GameObject:
   - component: {fileID: 760863882}
   m_Layer: 0
   m_Name: generationpoint (2)
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48570,7 +48570,7 @@ GameObject:
   - component: {fileID: 985910898}
   m_Layer: 0
   m_Name: generationpoint (3)
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

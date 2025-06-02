@@ -187,7 +187,17 @@ public class Player_Stats : MonoBehaviour
 
         healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal);
 
-        pickupSpawner.SpawnBasedOnHealth();
+        if (pickupSpawner != null)
+        {
+            pickupSpawner.SpawnBasedOnHealth();
+        }
+        else
+        {
+            Debug.LogWarning("PickupSpawner is null when trying to spawn pickups on player death.");
+        }
+
+
+        // pickupSpawner.SpawnBasedOnHealth();
 
         if (healthStat.CurrentVal <= 0)
         {

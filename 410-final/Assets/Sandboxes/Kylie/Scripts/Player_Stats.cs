@@ -10,11 +10,11 @@ using UnityEngine.SceneManagement;
 
 public class Player_Stats : MonoBehaviour
 {
-    [SerializeField] private Stat healthStat;
-    [SerializeField] private HealthBarUI healthBarUI;
+    [SerializeField] public Stat healthStat;
+    [SerializeField] public HealthBarUI healthBarUI;
     public WeaponIconUI weaponIconUI;
 
-    private int health;
+    public int health;
 
     public GameObject arrowPrefab;
 
@@ -41,6 +41,8 @@ public class Player_Stats : MonoBehaviour
     private float timeBetweenAttacks;
     public GameObject player;
     public GameObject deadMessage;
+    public HealthPickupSpawner pickupSpawner;
+
 
     void Start()
     {
@@ -63,6 +65,9 @@ public class Player_Stats : MonoBehaviour
         // Ensuring HealthBarUI is correctly initialized
         StartCoroutine(InitializeHealthBarUI());
         StartCoroutine(InitializeWeaponIconUI());
+
+        pickupSpawner = FindObjectOfType<HealthPickupSpawner>();
+
 
         deadMessage = GameObject.Find("Canvas").transform.Find("DiedMessage").gameObject;
     }
@@ -177,12 +182,12 @@ public class Player_Stats : MonoBehaviour
     {
 
         health -= dmg;
+        Debug.Log("Health in TAKE DAMAGE" + health);
         healthStat.CurrentVal = health;
 
-        Debug.Log("healthBarUI: " + healthBarUI);
-        Debug.Log("healthStat: " + healthStat);
-
         healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal);
+
+        pickupSpawner.SpawnBasedOnHealth();
 
         if (healthStat.CurrentVal <= 0)
         {
@@ -276,12 +281,18 @@ public class Player_Stats : MonoBehaviour
             SceneManager.LoadScene("castle");
         }
     }
-    
+
     public void Heal(int amount)
     {
         healthStat.CurrentVal = Mathf.Clamp(healthStat.CurrentVal + amount, 0, healthStat.MaxVal);
+        health = (int)healthStat.CurrentVal;
         healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal); // Update UI
     }
+
+    // public int GetHealth()
+    // {
+    //     return health;
+    // }
 
 
 

@@ -8,7 +8,7 @@ public class HealthBarUI : MonoBehaviour
     [SerializeField] private Image fillImage;
     [SerializeField] private float lerpSpeed = 5f;
     
-    private float targetFill = 1f;
+    public float targetFill = 1f;
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class HealthBarUI : MonoBehaviour
 public class Stat
 {
     [SerializeField] private float maxVal;
-    [SerializeField] private int currentVal;
+    [SerializeField] public int currentVal;
 
     public Stat(int maxValue = 5)
     {

@@ -23,11 +23,14 @@ using System.Collections;
 
 public class EndGame : MonoBehaviour
 {
-    public TextMeshProUGUI winText; // Assign this in the Inspector
+    public TextMeshProUGUI winText; 
+    public AudioSource winSound; 
+    private AudioSource audioSource;
 
     void Start()
     {
         winText.gameObject.SetActive(false); // Hide text at the start
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -44,6 +47,15 @@ public class EndGame : MonoBehaviour
     IEnumerator ShowWinTextAndLoadScene()
     {
         winText.gameObject.SetActive(true); // Show the win message
+
+        if (winSound != null)
+        {
+            winSound.Play(); // Play the win sound
+        }
+        else
+        {
+            Debug.LogWarning("Win sound not assigned in the Inspector!");
+        }
         yield return new WaitForSeconds(1f); // Wait for 1 second
         PlayerPrefs.SetString(SceneManager.GetActiveScene().name.ToString().Trim(), "Complete");
         PlayerPrefs.Save();

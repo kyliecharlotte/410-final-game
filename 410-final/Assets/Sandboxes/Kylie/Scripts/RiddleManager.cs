@@ -10,6 +10,7 @@ public class RiddleManager : MonoBehaviour
     private string correctAnswer;
     private RiddleUI riddleUI;
     private RiddleScoreUI uiManager;
+    public DoorController door;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -139,6 +140,10 @@ public class RiddleManager : MonoBehaviour
     {
         Debug.Log("Calling door unlock method...");
         FindObjectOfType<alpha_doors>().DisableDoorCollider(); // Call door script
+        if (door != null)
+        {
+            door.OpenDoor();
+        }
     }
 
 }

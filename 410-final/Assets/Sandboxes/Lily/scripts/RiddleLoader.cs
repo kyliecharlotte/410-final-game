@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking; 
 using System.Text.RegularExpressions;
 using System.IO;
-using System.Collections; 
+using System.Collections;
 
 
 public class RiddleLoader : MonoBehaviour
@@ -14,15 +14,16 @@ public class RiddleLoader : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(LoadRiddles()); 
+        StartCoroutine(LoadRiddles());
+    }
 
     private IEnumerator LoadRiddles()
     {
         string path;
 
-        if (Application.platform == RuntimePlatform.WebGLPlayer) 
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            path = Application.streamingAssetsPath + "/riddles.csv"; 
+            path = Application.streamingAssetsPath + "/riddles.csv";
             UnityWebRequest request = UnityWebRequest.Get(path);
             yield return request.SendWebRequest();
 
@@ -32,11 +33,11 @@ public class RiddleLoader : MonoBehaviour
                 yield break;
             }
 
-            ParseCSV(request.downloadHandler.text); 
+            ParseCSV(request.downloadHandler.text);
         }
-        else 
+        else
         {
-            path = Application.dataPath + "/Resources/riddles.csv"; 
+            path = Application.dataPath + "/Resources/riddles.csv";
             if (!File.Exists(path))
             {
                 Debug.LogError("Riddle CSV file not found!");
@@ -84,7 +85,7 @@ public class RiddleLoader : MonoBehaviour
     public (string, string) GetRiddle()
     {
         if (!riddlesLoaded)
-        return ("Riddles not yet loaded", "");
+            return ("Riddles not yet loaded", "");
 
 
         if (riddles.ContainsKey(level) && riddles[level].Count > 0)
@@ -95,3 +96,4 @@ public class RiddleLoader : MonoBehaviour
         return ("No riddle found", "");
     }
 }
+

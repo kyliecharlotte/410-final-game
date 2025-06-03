@@ -15,7 +15,6 @@ public class RiddleUI : MonoBehaviour
     {
         riddlePanel.SetActive(false);
 
-        // Listen for Enter key when typing in the input field
         answerInput.onEndEdit.AddListener(delegate {
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
@@ -26,7 +25,7 @@ public class RiddleUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Detect left mouse click
+        if (Input.GetMouseButtonDown(0)) 
         {
             answerInput.Select();
             answerInput.ActivateInputField();
@@ -38,13 +37,13 @@ public class RiddleUI : MonoBehaviour
     public void ShowRiddle(string riddle)
     {
         riddlePanel.SetActive(true);
-        riddleText.gameObject.SetActive(true);  // Enable the riddle text UI
-        answerInput.gameObject.SetActive(true); // Enable the input field UI
+        riddleText.gameObject.SetActive(true);  
+        answerInput.gameObject.SetActive(true); 
         errorMessage.gameObject.SetActive(true);
 
         riddleText.text = riddle;
-        answerInput.text = "";  // Clear input field
-        errorMessage.text = ""; // Reset error message
+        answerInput.text = "";  
+        errorMessage.text = ""; 
 
 
         answerInput.interactable = true;
@@ -60,7 +59,7 @@ public class RiddleUI : MonoBehaviour
     {
         answerInput.Select();
         answerInput.ActivateInputField();
-        answerInput.caretPosition = answerInput.text.Length; // Ensure cursor stays at the end
+        answerInput.caretPosition = answerInput.text.Length; 
     }
 
 
@@ -86,8 +85,8 @@ public class RiddleUI : MonoBehaviour
         else
         {
             ShowErrorMessage("Incorrect answer! Try again.");
-            answerInput.text = ""; // Clear incorrect input
-            Invoke("EnableInput", 0.1f); // Reactivate input field
+            answerInput.text = ""; 
+            Invoke("EnableInput", 0.1f); 
         }
     }
 

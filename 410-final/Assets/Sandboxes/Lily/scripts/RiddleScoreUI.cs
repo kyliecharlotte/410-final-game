@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class RiddleScoreUI : MonoBehaviour
 {
-    [SerializeField] private Text scoreText; // Reference to the UI text
-    [SerializeField] private Image[] riddleImages; // Array of images
+    [SerializeField] private Text scoreText; 
+    [SerializeField] private Image[] riddleImages; 
     
 
     void Start()
@@ -19,7 +19,7 @@ public class RiddleScoreUI : MonoBehaviour
             Debug.LogError("Assign exactly 3 images for the riddle UI!");
         }
 
-        UpdateScoreUI(); // Initialize UI
+        UpdateScoreUI(); 
     }
 
     public void UpdateScoreUI()
@@ -41,11 +41,11 @@ public class RiddleScoreUI : MonoBehaviour
 
             if (i < score)
             {
-                imgColor.a = 1f; // Fully visible
+                imgColor.a = 1f; 
             }
             else
             {
-                imgColor.a = 0.3f; // Semi-transparent
+                imgColor.a = 0.3f; 
             }
 
             riddleImages[i].color = imgColor;

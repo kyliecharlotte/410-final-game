@@ -74,13 +74,11 @@ public class Player_Stats : MonoBehaviour
 
     public IEnumerator InitializeHealthBarUI()
     {
-        yield return new WaitForEndOfFrame(); // Wait for UI to be created
-
-        GameObject canvas = GameObject.Find("Canvas"); // Ensure this matches your actual Canvas name
-
+        yield return new WaitForEndOfFrame(); 
+        GameObject canvas = GameObject.Find("Canvas"); 
         if (canvas != null)
         {
-            healthBarUI = canvas.GetComponentInChildren<HealthBarUI>(); // Only search within the Canvas
+            healthBarUI = canvas.GetComponentInChildren<HealthBarUI>(); 
         }
         else
         {
@@ -100,11 +98,11 @@ public class Player_Stats : MonoBehaviour
 
     public IEnumerator InitializeWeaponIconUI()
     {
-        yield return new WaitForEndOfFrame(); // Wait for UI to be created
+        yield return new WaitForEndOfFrame(); 
 
         if (weaponIconUI == null)
         {
-            weaponIconUI = FindObjectOfType<WeaponIconUI>(); // Find the UI component after it's created
+            weaponIconUI = FindObjectOfType<WeaponIconUI>(); 
         }
 
         if (weaponIconUI == null)
@@ -208,10 +206,10 @@ public class Player_Stats : MonoBehaviour
 
     IEnumerator ShowDeadMessageAndEndGame()
     {
-        deadMessage.SetActive(true); // Show the death message
-        yield return new WaitForSeconds(1.0f); // Wait for 1 second
-        deadMessage.SetActive(false); // Hide the message before transitioning
-        EndGame(); // Call the EndGame function
+        deadMessage.SetActive(true); 
+        yield return new WaitForSeconds(1.0f); 
+        deadMessage.SetActive(false); 
+        EndGame(); 
     }
 
     public void MaceAttack_1(GameObject mace)
@@ -296,13 +294,9 @@ public class Player_Stats : MonoBehaviour
     {
         healthStat.CurrentVal = Mathf.Clamp(healthStat.CurrentVal + amount, 0, healthStat.MaxVal);
         health = (int)healthStat.CurrentVal;
-        healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal); // Update UI
+        healthBarUI.UpdateValue(healthStat.CurrentVal, healthStat.MaxVal); 
     }
 
-    // public int GetHealth()
-    // {
-    //     return health;
-    // }
 
 
 

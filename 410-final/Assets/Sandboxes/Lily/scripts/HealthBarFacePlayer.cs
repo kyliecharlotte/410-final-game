@@ -19,10 +19,10 @@ public class HealthBarFacePlayer : MonoBehaviour
 
     void Update()
     {
-        if (player != null) // Ensure player exists before using it
+        if (player != null) 
         {
             transform.LookAt(player);
-            transform.Rotate(0, 180, 0); // Flip to face correctly
+            transform.Rotate(0, 180, 0); 
         }
     }
 }

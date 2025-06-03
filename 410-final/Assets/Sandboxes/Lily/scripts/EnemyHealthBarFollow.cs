@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class EnemyHealthBarFollow : MonoBehaviour
 {
-    public Transform enemy; // Assign the enemy in the Inspector
-    public Vector3 offset = new Vector3(0, 10, 0); // Adjust height
+    public Transform enemy; 
+    public Vector3 offset = new Vector3(0, 10, 0); 
 
     void Update()
     {
-        if (enemy == null) // Prevent accessing a destroyed object
+        if (enemy == null) 
         {
-            Destroy(gameObject); // Destroy the health bar if the enemy is gone
+            Destroy(gameObject); 
             return;
         }
 

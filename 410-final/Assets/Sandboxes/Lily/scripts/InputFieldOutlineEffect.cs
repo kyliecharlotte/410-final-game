@@ -32,7 +32,7 @@ public class InputFieldOutlineEffect : MonoBehaviour
     {
         if (outline != null)
         {
-            outline.enabled = true; // Enable the outline effect
+            outline.enabled = true; 
         }
     }
 
@@ -40,7 +40,7 @@ public class InputFieldOutlineEffect : MonoBehaviour
     {
         if (outline != null)
         {
-            outline.enabled = false; // Disable the outline effect
+            outline.enabled = false; 
         }
     }
 }

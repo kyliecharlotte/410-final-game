@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class HealthPickup : MonoBehaviour
 {
-    public int healthAmount = 20; // Amount of health to restore
-    public float rotationSpeed = 50f; // Speed of spinning
+    public int healthAmount = 20; 
+    public float rotationSpeed = 50f; 
 
     void Update()
     {
-        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime); // Spin the candy
+        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime); 
     }
     
     private void OnTriggerEnter(Collider other)
@@ -19,7 +19,7 @@ public class HealthPickup : MonoBehaviour
             {
                 playerStats.Heal(healthAmount);
             }
-            Destroy(gameObject); // Remove the collectable after pickup
+            Destroy(gameObject); 
         }
     }
 }

@@ -123,6 +123,11 @@ public class EnemyScript : MonoBehaviour
     private void Patroling()
     {
 
+        if (chaseAudioSource != null)
+        {
+            chaseAudioSource.Play();
+        }
+
         donut.SetDestination(waypoints[currentWP].transform.position);
         if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 4)
         {

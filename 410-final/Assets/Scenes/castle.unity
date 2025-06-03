@@ -92908,6 +92908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winText: {fileID: 538726953}
+  winSound: {fileID: 0}
 --- !u!65 &1988224781
 BoxCollider:
   m_ObjectHideFlags: 0

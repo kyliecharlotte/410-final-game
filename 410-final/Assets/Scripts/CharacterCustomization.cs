@@ -32,7 +32,7 @@ public class Character_Customization : MonoBehaviour
 
         if (selectedCharacter == 1) {
             player.transform.position = new Vector3(-0.3f, 1.23f, -3.8f);
-        }
+        } 
         // in case they look away
 
         player.transform.LookAt(camera_ref);

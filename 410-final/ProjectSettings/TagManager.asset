@@ -17,6 +17,7 @@ TagManager:
   - Candy
   - SpawnPoints
   - SpawnPoint
+  - ExitDoor
   layers:
   - Default
   - TransparentFX

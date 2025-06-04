@@ -14,6 +14,11 @@ public class RiddleManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        GameObject doorObject = GameObject.FindWithTag("ExitDoor");
+        if (doorObject != null)
+        {
+            door = doorObject.GetComponent<DoorController>();
+        }
         uiManager = FindObjectOfType<RiddleScoreUI>(); 
         UpdateUI();
 
@@ -143,6 +148,10 @@ public class RiddleManager : MonoBehaviour
         if (door != null)
         {
             door.OpenDoor();
+        }
+        else
+        {
+            Debug.Log("Door was null");
         }
     }
 

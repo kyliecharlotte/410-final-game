@@ -11,6 +11,7 @@ public class DoorController : MonoBehaviour
     {
         if (!isOpen)
         {
+            Debug.Log("Door Opened after level completed");
             isOpen = true;
             StartCoroutine(RotateDoor(Vector3.up * openAngle));
         }

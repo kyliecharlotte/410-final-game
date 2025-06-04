@@ -77229,6 +77229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EXITDOOR
       objectReference: {fileID: 0}
+    - target: {fileID: -2388655821251139895, guid: 18166cec4630ecd43b8453fe512cd9a4, type: 3}
+      propertyPath: m_TagString
+      value: ExitDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 18166cec4630ecd43b8453fe512cd9a4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4

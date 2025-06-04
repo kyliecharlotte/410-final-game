@@ -207,7 +207,17 @@ public class Player_Stats : MonoBehaviour
     IEnumerator ShowDeadMessageAndEndGame()
     {
         deadMessage.SetActive(true); 
-        yield return new WaitForSeconds(1.0f); 
+        // Play death sound from the AudioSource on the deadMessage GameObject
+        AudioSource deathAudio = deadMessage.GetComponent<AudioSource>();
+        if (deathAudio != null)
+        {
+            deathAudio.Play();
+        }
+        else
+        {
+            Debug.LogWarning("No AudioSource found on DiedMessage GameObject.");
+        }
+        yield return new WaitForSeconds(5.0f); 
         deadMessage.SetActive(false); 
         EndGame(); 
     }

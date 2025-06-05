@@ -15,7 +15,7 @@ public class EnemyScript : MonoBehaviour
     public bool canMove;
 
     [SerializeField] private float timer = 0.7f;
-    private int velocity = 350;
+    private int velocity = 375;
     private float bulletTime;
     public GameObject enemyBullet;
     public Transform spawnPoint;

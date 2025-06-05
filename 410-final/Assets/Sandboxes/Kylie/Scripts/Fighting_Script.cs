@@ -14,8 +14,8 @@ public class Fighting_Script : MonoBehaviour
     
     public Vector3 inputDirection;
     public GameObject player;
-    private float moveSpeed = 8.0f;
-    private float sprintSpeed = 18.0f;
+    private float moveSpeed = 10.0f;
+    private float sprintSpeed = 20.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
